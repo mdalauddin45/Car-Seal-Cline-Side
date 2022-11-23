@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import PrimaryButton from "../../PrimaryButton";
 
 function Navbar() {
   return (
@@ -90,7 +92,13 @@ function Navbar() {
         </ul>
       </div>
       <div className="navbar-end">
-        <a className="btn">Get started</a>
+        <Link to="/login" className="mr-5 hover:text-green-600">
+          Login
+        </Link>
+        <Link to="/signup" className="mr-5">
+          <PrimaryButton classes="rounded-full px-2 py-1">Signup</PrimaryButton>
+        </Link>
+        <span className="mx-1">Sign Out</span>
       </div>
     </div>
   );
