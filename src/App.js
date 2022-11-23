@@ -3,7 +3,11 @@ import { RouterProvider } from "react-router-dom";
 import { router } from "./Routes/routes";
 
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <div className="bg-white">
+      <RouterProvider router={router} />
+    </div>
+  );
 }
 
 export default App;
