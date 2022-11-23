@@ -1,7 +1,17 @@
 import React from "react";
+import { useEffect } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const ProductCategoris = () => {
+  const [categoris, setCategoris] = useState([]);
+  useEffect(() => {
+    fetch(`car-products.json`)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
+  }, []);
   return (
     <div className="max-w-screen-xl mx-auto">
       <h1 className="text-center text-black text-3xl p-5 font-bold">
