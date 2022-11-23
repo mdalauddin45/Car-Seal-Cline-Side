@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import PrimaryButton from "../../components/PrimaryButton/PrimaryButton";
-import { AuthContext } from "../contexts/AuthProvider";
+import { AuthContext } from "../../contexts/AuthProvider";
+import PrimaryButton from "../../PrimaryButton";
 
 const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
