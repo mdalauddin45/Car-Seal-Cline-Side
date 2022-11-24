@@ -9,7 +9,7 @@ const PrivateRoute = ({ children }) => {
   console.log(loading);
   if (loading) {
     return (
-      <div className="h-screen">
+      <div className="h-screen px-[50%] pt-20">
         <SmallSpinner />
       </div>
     );
