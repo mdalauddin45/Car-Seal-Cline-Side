@@ -1,7 +1,9 @@
 import React from "react";
 import img1 from "../../assets/Products/big_with_watermark_toyota-axio-dhaka-dhaka-5939.jpg";
 
-const Product = () => {
+const Product = ({ product }) => {
+  console.log(product);
+
   return (
     <div className="bg-[#eee] p-10">
       <div className="max-w-xs rounded-md shadow-md dark:bg-white dark:text-gray-900">
