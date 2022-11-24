@@ -4,7 +4,8 @@ import { AuthContext } from "../../contexts/AuthProvider";
 import toast from "react-hot-toast";
 import PrimaryButton from "../../PrimaryButton";
 import SmallSpinner from "../../components/Spinner/SmallSpinner";
-import { setAuthToken } from "../../api/UserAuth";
+import { getAllUsers, makeSealer, setAuthToken } from "../../api/UserAuth";
+import { useState } from "react";
 
 const Signup = () => {
   const {
@@ -14,7 +15,7 @@ const Signup = () => {
     setLoading,
     signInWithGoogle,
   } = useContext(AuthContext);
-
+  const [role, setRole] = useState(null);
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
@@ -36,18 +37,34 @@ const Signup = () => {
     })
       .then((res) => res.json())
       .then((imageData) => {
+        const userData = {
+          name,
+          options,
+          email,
+          image: imageData.data.display_url,
+          role,
+        };
+        console.log(userData);
         // Create User
         createUser(email, password)
           .then((result) => {
             console.log(result.user);
-            setAuthToken(result.user);
+            setAuthToken(userData);
             updateUserProfile(name, imageData.data.display_url)
               .then(() => {
                 setLoading(false);
                 navigate(from, { replace: true });
                 toast.success("Sign up Succesfuly");
+                if (userData.options === "seller") {
+                  setRole("seller");
+                  makeSealer(userData);
+                  getAllUsers();
+                }
               })
-              .catch((err) => console.log(err));
+              .catch((err) => {
+                console.log(err);
+                toast.error(err.message);
+              });
           })
 
           .catch((err) => {
