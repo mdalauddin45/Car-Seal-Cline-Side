@@ -43,15 +43,11 @@ const Signup = () => {
           .then((result) => {
             //  setAuthToken(result.user);
             updateUserProfile(name, imageData.data.display_url)
-              .then(
-                verifyEmail().then(() => {
-                  toast.success(
-                    "Please check your email for verification link."
-                  );
-                  setLoading(false);
-                  navigate(from, { replace: true });
-                })
-              )
+              .then(() => {
+                setLoading(false);
+                navigate(from, { replace: true });
+                toast.success("Sign up Succesfuly");
+              })
               .catch((err) => console.log(err));
           })
 
