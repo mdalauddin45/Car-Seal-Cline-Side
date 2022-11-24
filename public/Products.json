@@ -1,6 +1,6 @@
 [
     {
-        "id":1,
+   
         "name":"Toyota Carina",
         "location":"Patiya,Chattogram",
         "originalprice":109.95,
@@ -11,7 +11,7 @@
        
         },
     {
-        "id":2,
+       
         "name":"Toyota Land Cruiser Prado",
         "location":"Patiya,Chattogram",
         "originalprice":109.95,
@@ -21,7 +21,7 @@
         "image":"https://garirbazar.s3.amazonaws.com/uploads/picture/url/47365/medium_with_watermark_toyota-land-cruiser-prado-dhaka-dhaka-5967.jpg" 
         },
         {
-            "id":3,
+           
             "name":"Nissan Bluebird",
             "location":"Patiya,Chattogram",
             "originalprice":22.3,
@@ -31,7 +31,7 @@
             "image":"https://garirbazar.s3.amazonaws.com/uploads/picture/url/47357/medium_with_watermark_nissan-bluebird-dhaka-dhaka-5966.jpg"
         },
         {
-            "id":4,
+           
             "name":"Nissan X-Trail",
             "location":"Patiya,Chattogram",
             "originalprice":22.3,
@@ -41,7 +41,7 @@
             "image":"https://garirbazar.s3.amazonaws.com/uploads/picture/url/47192/medium_with_watermark_nissan-x-trail-dhaka-dhaka-5953.jpg"         
         },
         {
-            "id":5,
+          
             "name":"Lexus RX 350",
             "location":"Patiya,Chattogram",
             "originalprice":55.99,
@@ -51,7 +51,7 @@
             "image":"https://garirbazar.s3.amazonaws.com/uploads/picture/url/44009/medium_with_watermark_lexus-rx-300-dhaka-dhaka-5622.jpg"     
         },
         {
-            "id":6,
+          
             "name":"Lexus RX 300",
             "location":"Patiya,Chattogram",
             "originalprice":55.99,

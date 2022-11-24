@@ -1,25 +1,25 @@
 import React from "react";
-import img1 from "../../assets/Products/big_with_watermark_toyota-axio-dhaka-dhaka-5939.jpg";
-
 const Product = ({ product }) => {
   console.log(product);
-
+  const { name, location, image, originalprice, resaleprice, used } = product;
   return (
     <div className="bg-[#eee] p-10">
       <div className="max-w-xs rounded-md shadow-md dark:bg-white dark:text-gray-900">
         <img
-          src={img1}
+          src={image}
           alt=""
           className="object-cover object-center w-full rounded-t-md h-72 dark:bg-gray-500"
         />
         <div className="flex flex-col justify-between p-6 space-y-8">
           <div className="space-y-2">
-            <h2 className="text-3xl font-semibold tracking-wide">
-              Donec lectus leo
+            <h2 className="text-2xl font-semibold tracking-wide">
+              {name.slice(0, 18) + "..."}
             </h2>
-            <p className="dark:text-gray-900">
-              Curabitur luctus erat nunc, sed ullamcorper erat vestibulum eget.
-            </p>
+            <p className="dark:text-gray-900">Location: {location}</p>
+            <p className="text-red-400">Orginal Price: ${originalprice}</p>
+            <p className="text-green-500">Resale Price: ${resaleprice}</p>
+
+            <p className="dark:text-gray-900">Posted 4 months ago</p>
           </div>
           <button
             type="button"
