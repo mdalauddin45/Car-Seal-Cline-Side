@@ -2,8 +2,9 @@ import React from "react";
 import { useContext } from "react";
 import { AuthContext } from "../../contexts/AuthProvider";
 
-function BookdModal({ product, setProducts }) {
+function BookdModal({ item, setItem }) {
   const { user } = useContext(AuthContext);
+  console.log(item);
   return (
     <div>
       <input type="checkbox" id="booking-modal" className="modal-toggle" />
@@ -15,7 +16,7 @@ function BookdModal({ product, setProducts }) {
           >
             ✕
           </label>
-          <h3 className="text-lg font-bold ">name</h3>
+          <h3 className="text-lg font-bold ">{item.name}</h3>
           <form className="space-y-6 ng-untouched ng-pristine ng-valid">
             <div className="space-y-3 text-sm ">
               <input

@@ -1,10 +1,11 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
+import BookdModal from "../Products/BookdModal";
 import HomeProducts from "../Products/HomeTemporary/HomeProducts";
-import Category from "./Category";
+// import Category from "./Category";
 
 const Categoris = () => {
-  const [item, setItem] = useState([]);
+  const [item, setItem] = useState(null);
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
   useEffect(() => {
@@ -23,10 +24,11 @@ const Categoris = () => {
           <HomeProducts
             key={product._id}
             product={product}
-            setProducts={setProducts}
+            setItem={setItem}
           ></HomeProducts>
         ))}
       </div>
+      <BookdModal setItem={setItem} item={item}></BookdModal>
     </div>
   );
 };

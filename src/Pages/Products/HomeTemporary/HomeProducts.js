@@ -1,9 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import PrimaryButton from "../../../PrimaryButton";
-import BookdModal from "../BookdModal";
 
-function HomeProducts({ product, setProducts }) {
+function HomeProducts({ product, setItem }) {
   const { name, location, image, originalprice, resaleprice, used, category } =
     product;
 
@@ -31,7 +29,7 @@ function HomeProducts({ product, setProducts }) {
               <label
                 htmlFor="booking-modal"
                 // disabled={slots.length === 0}
-                // onClick={() => setTreatment(appointment)}
+                onClick={() => setItem(product)}
                 className="hover:text-gray-100 bg-gradient-to-r from-emerald-500 to-lime-500 text-white px-2 py-1 rounded"
               >
                 Bookd Now
@@ -47,7 +45,6 @@ function HomeProducts({ product, setProducts }) {
           </div>
         </div>
       </div>
-      <BookdModal product={product} setProducts={setProducts}></BookdModal>
     </div>
   );
 }
