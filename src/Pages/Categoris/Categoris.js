@@ -1,30 +1,30 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
+import HomeProducts from "../Products/HomeTemporary/HomeProducts";
 import Category from "./Category";
 
 const Categoris = () => {
   const [item, setItem] = useState([]);
-  const [products, setProducts] = useState(item);
+  const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
   useEffect(() => {
-    fetch("http://localhost:5000/products")
+    fetch("http://localhost:5000/categoris")
       .then((res) => res.json())
       .then((data) => {
         // console.log(data);
         setProducts(data);
       });
   }, []);
-  console.log(products);
+  //   console.log(products);
   return (
     <div>
-      <h1>this is categoris</h1>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 max-w-screen-xl mx-auto mt-10 mb-6 ">
         {products.map((product) => (
-          <Category
+          <HomeProducts
             key={product._id}
             product={product}
             setProducts={setProducts}
-          ></Category>
+          ></HomeProducts>
         ))}
       </div>
     </div>

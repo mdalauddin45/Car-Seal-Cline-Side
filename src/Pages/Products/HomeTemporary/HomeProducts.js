@@ -1,26 +1,8 @@
 import React from "react";
-import { useState } from "react";
 
-import { useEffect } from "react";
-const Category = ({ product, setProducts }) => {
-  const [loading, setLoading] = useState(false);
+function HomeProducts({ product }) {
   const { name, location, image, originalprice, resaleprice, used, category } =
     product;
-  useEffect(() => {
-    fetch(`http://localhost:5000/categoris/${category}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setProducts(data);
-        // // console.log(data);
-        // const allItems = data;
-        // console.log(data);
-        // const categoryItems = allItems.filter((i) => i.category === category);
-        // console.log(categoryItems);
-        // setProducts(categoryItems);
-        // setLoading(false);
-      });
-  }, []);
-  //   console.log(product);
   return (
     <div>
       <div className="bg-[#eee] p-10">
@@ -52,6 +34,6 @@ const Category = ({ product, setProducts }) => {
       </div>
     </div>
   );
-};
+}
 
-export default Category;
+export default HomeProducts;
