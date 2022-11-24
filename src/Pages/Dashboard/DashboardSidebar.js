@@ -1,5 +1,8 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../../contexts/AuthProvider";
+import AdminMenu from "./AdminMenu";
+import BuyerMenu from "./BuyerMenu";
+import SellerMenu from "./SellerMenu";
 
 function DashboardSidebar({ role }) {
   const { user, logout } = useContext(AuthContext);
@@ -64,9 +67,9 @@ function DashboardSidebar({ role }) {
           <div className="flex flex-col justify-between flex-1 mt-6">
             <nav>
               {role && role !== "requested" ? (
-                <>{role === "admin" ? <AdminMenu /> : <HostMenu />} </>
+                <>{role === "admin" ? <AdminMenu /> : <SellerMenu />} </>
               ) : (
-                <UserMenu />
+                <BuyerMenu />
               )}
             </nav>
           </div>
