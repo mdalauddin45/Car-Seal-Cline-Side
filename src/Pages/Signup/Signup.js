@@ -4,12 +4,12 @@ import { AuthContext } from "../../contexts/AuthProvider";
 import toast from "react-hot-toast";
 import PrimaryButton from "../../PrimaryButton";
 import SmallSpinner from "../../components/Spinner/SmallSpinner";
+import { setAuthToken } from "../../api/UserAuth";
 
 const Signup = () => {
   const {
     createUser,
     updateUserProfile,
-    verifyEmail,
     loading,
     setLoading,
     signInWithGoogle,
@@ -41,7 +41,8 @@ const Signup = () => {
         // Create User
         createUser(email, password)
           .then((result) => {
-            //  setAuthToken(result.user);
+            console.log(result.user.email);
+            setAuthToken(result.user);
             updateUserProfile(name, imageData.data.display_url)
               .then(() => {
                 setLoading(false);
@@ -62,7 +63,7 @@ const Signup = () => {
   const handleGoogleSignin = () => {
     signInWithGoogle().then((result) => {
       console.log(result.user);
-      //setAuthToken(result.user);
+      setAuthToken(result.user);
       setLoading(false);
       navigate(from, { replace: true });
     });
