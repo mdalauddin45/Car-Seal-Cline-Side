@@ -61,7 +61,7 @@ function Navbar() {
             </li>
           </ul>
         </div>
-        <Link to="/" className="btn btn-ghost normal-case text-xl">
+        <Link to="/" className="text-black normal-case text-xl font-bold">
           Gari Bazar
         </Link>
       </div>
@@ -78,6 +78,9 @@ function Navbar() {
       <div className="navbar-end">
         {user?.email ? (
           <>
+            <div>
+              <Link to="/dashboard">Dashboard</Link>
+            </div>
             <div
               onClick={() => {
                 setIsDropdownOpen(!isDropdownOpen);
