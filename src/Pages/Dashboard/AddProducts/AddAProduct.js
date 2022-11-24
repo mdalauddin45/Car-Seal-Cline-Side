@@ -69,7 +69,7 @@ const AddAProduct = () => {
   return (
     <>
       <h1 className="text-3xl font-bold text-gray-800 py-8 text-center">
-        Add Home
+        Add Product
       </h1>
       <AddProductForm
         handleSubmit={handleSubmit}

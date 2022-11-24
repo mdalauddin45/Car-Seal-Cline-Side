@@ -23,6 +23,19 @@ const AddProductForm = ({
             className="space-y-6 ng-untouched ng-pristine ng-valid"
           >
             <div className="space-y-1 text-sm">
+              <label htmlFor="title" className="block text-gray-600">
+                Name of Car
+              </label>
+              <input
+                className="w-full px-4 py-3 text-gray-800 border border-green-300 focus:outline-green-500 rounded-md bg-green-50"
+                name="title"
+                id="title"
+                type="text"
+                placeholder="Enter Your Car Name"
+                required
+              />
+            </div>
+            <div className="space-y-1 text-sm">
               <label htmlFor="location" className="block text-gray-600">
                 Location
               </label>
@@ -35,21 +48,7 @@ const AddProductForm = ({
                 required
               />
             </div>
-            <div className="space-y-1 text-sm">
-              <label htmlFor="title" className="block text-gray-600">
-                Title
-              </label>
-              <input
-                className="w-full px-4 py-3 text-gray-800 border border-green-300 focus:outline-green-500 rounded-md bg-green-50"
-                name="title"
-                id="title"
-                type="text"
-                placeholder="Title"
-                required
-              />
-            </div>
-
-            <div className="flex justify-between ">
+            {/* <div className="flex justify-between ">
               <div className="shadow-md rounded-md my-2 p-3 flex justify-between items-center">
                 <div>
                   <p className="block text-sm text-gray-500">From</p>
@@ -74,33 +73,33 @@ const AddProductForm = ({
 
                 <CalendarIcon className="h5 w-5" />
               </div>
-            </div>
+            </div> */}
 
             <div className="flex justify-between gap-2">
               <div className="space-y-1 text-sm">
                 <label htmlFor="price" className="block text-gray-600">
-                  Price
+                  Orginal Price
                 </label>
                 <input
                   className="w-full px-4 py-3 text-gray-800 border border-green-300 focus:outline-green-500 rounded-md bg-green-50"
                   name="price"
                   id="price"
                   type="number"
-                  placeholder="Price"
+                  placeholder="Orginal Price"
                   required
                 />
               </div>
 
               <div className="space-y-1 text-sm">
-                <label htmlFor="guest" className="block text-gray-600">
-                  Total guest
+                <label htmlFor="price" className="block text-gray-600">
+                  Resale Price
                 </label>
                 <input
                   className="w-full px-4 py-3 text-gray-800 border border-green-300 focus:outline-green-500 rounded-md bg-green-50"
-                  name="total_guest"
-                  id="guest"
+                  name="Resale_Price"
+                  id="price"
                   type="number"
-                  placeholder="Total guest"
+                  placeholder="Resale Price"
                   required
                 />
               </div>
@@ -108,29 +107,29 @@ const AddProductForm = ({
 
             <div className="flex justify-between gap-2">
               <div className="space-y-1 text-sm">
-                <label htmlFor="bedrooms" className="block text-gray-600">
-                  Bedrooms
+                <label htmlFor="number" className="block text-gray-600">
+                  Year of used
                 </label>
                 <input
                   className="w-full px-4 py-3 text-gray-800 border border-green-300 focus:outline-green-500 rounded-md bg-green-50"
-                  name="bedrooms"
-                  id="bedrooms"
+                  name="number"
+                  id="number"
                   type="number"
-                  placeholder="Bedrooms"
+                  placeholder="Enter years of used"
                   required
                 />
               </div>
 
               <div className="space-y-1 text-sm">
-                <label htmlFor="bathrooms" className="block text-gray-600">
-                  Bathrooms
+                <label htmlFor="mobile_number" className="block text-gray-600">
+                  Mobile Number
                 </label>
                 <input
                   className="w-full px-4 py-3 text-gray-800 border border-green-300 focus:outline-green-500 rounded-md bg-green-50"
-                  name="bathrooms"
-                  id="bathrooms"
+                  name="mobile_number"
+                  id="mobile_number"
                   type="number"
-                  placeholder="Bathrooms"
+                  placeholder="Enter Your Mobile"
                   required
                 />
               </div>
