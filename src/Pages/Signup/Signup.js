@@ -22,11 +22,9 @@ const Signup = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     const name = event.target.name.value;
-
+    const options = event.target.option.value;
     const email = event.target.email.value;
     const password = event.target.password.value;
-
-    // Image Upload
     const image = event.target.image.files[0];
     const formData = new FormData();
     formData.append("image", image);
@@ -41,7 +39,7 @@ const Signup = () => {
         // Create User
         createUser(email, password)
           .then((result) => {
-            console.log(result.user.email);
+            console.log(result.user);
             setAuthToken(result.user);
             updateUserProfile(name, imageData.data.display_url)
               .then(() => {
@@ -91,13 +89,13 @@ const Signup = () => {
                 type="text"
                 name="name"
                 id="name"
-                placeholder="Enter Your Name Here"
-                className="w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-green-500 bg-gray-200 text-gray-900"
+                placeholder="Enter Your Name"
+                className="w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-green-500 bg-white text-gray-900"
                 data-temp-mail-org="0"
               />
             </div>
             <div>
-              <label htmlFor="image" className="block mb-2 text-sm">
+              <label htmlFor="image" className="block mb-2 text-sm ">
                 Select Image:
               </label>
               <input
@@ -118,7 +116,7 @@ const Signup = () => {
                 name="email"
                 id="email"
                 placeholder="Enter Your Email Here"
-                className="w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-green-500 bg-gray-200 text-gray-900"
+                className="w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-green-500 bg-white text-gray-900"
                 data-temp-mail-org="0"
               />
             </div>
@@ -134,8 +132,22 @@ const Signup = () => {
                 name="password"
                 id="password"
                 placeholder="*******"
-                className="w-full px-3 py-2 border rounded-md border-gray-300 bg-gray-200 focus:outline-green-500 text-gray-900"
+                className="w-full px-3 py-2 border rounded-md border-gray-300 bg-white focus:outline-green-500 text-gray-900"
               />
+            </div>
+            <div>
+              <div className="flex justify-between mb-2">
+                <label htmlFor="useraccount" className="text-sm">
+                  Choice in option
+                </label>
+              </div>
+              <select
+                name="option"
+                className="select select-bordered  w-full bg-white "
+              >
+                <option value="seller">Seller</option>
+                <option value="buyer">Buyer</option>
+              </select>
             </div>
           </div>
           <div className="space-y-2">
