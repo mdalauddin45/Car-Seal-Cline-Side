@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+import React from "react";
+import { useEffect } from "react";
 import { useState } from "react";
 import SmallSpinner from "../../components/Spinner/SmallSpinner";
 import BookdModal from "../Products/BookdModal";
@@ -23,33 +24,40 @@ const Categoris = () => {
   //     return data;
   //   },
   // });
-
-  if (loading) {
-    return <SmallSpinner></SmallSpinner>;
-  }
   useEffect(() => {
     fetch("http://localhost:5000/categoris")
       .then((res) => res.json())
       .then((data) => {
         // console.log(data);
         setProducts(data);
+        setLoading(false);
       });
   }, []);
   // console.log(products);
-
+  if (loading) {
+    return <SmallSpinner></SmallSpinner>;
+  }
   return (
     <div>
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 max-w-screen-xl mx-auto mt-10 mb-6 ">
-        {products &&
-          products?.map((product) => (
-            <HomeProducts
-              key={product._id}
-              product={product}
-              setItem={setItem}
-            ></HomeProducts>
-          ))}
-      </div>
-      {item && <BookdModal setItem={setItem} item={item}></BookdModal>}
+      {loading ? (
+        <>
+          <SmallSpinner />
+        </>
+      ) : (
+        <>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 max-w-screen-xl mx-auto mt-10 mb-6 ">
+            {products &&
+              products?.map((product) => (
+                <HomeProducts
+                  key={product._id}
+                  product={product}
+                  setItem={setItem}
+                ></HomeProducts>
+              ))}
+          </div>
+          {item && <BookdModal setItem={setItem} item={item}></BookdModal>}
+        </>
+      )}
     </div>
   );
 };
