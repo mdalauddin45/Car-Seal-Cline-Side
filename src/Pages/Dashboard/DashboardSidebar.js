@@ -46,7 +46,7 @@ function DashboardSidebar({ role }) {
           {/* Branding & Profile Info */}
           <div>
             <h2 className="text-3xl cursor-pointer font-semibold text-center text-gray-800 ">
-              <Link to="/"> Garibazar</Link>
+              <Link to="/"> Gari Bazar</Link>
             </h2>
             <div className="flex flex-col items-center mt-6 -mx-2">
               <Link to="/dashboard">
@@ -59,11 +59,13 @@ function DashboardSidebar({ role }) {
               </Link>
               <Link to="/dashboard">
                 <h4 className="mx-2 mt-2 font-medium text-gray-800  hover:underline">
-                  {user?.displayName}{" "}
-                  {user?.emailVerified === true && (
-                    <>
-                      <CheckBadgeIcon className="h-5 w-5" />
-                    </>
+                  {user?.emailVerified === true ? (
+                    <div className="flex">
+                      {user?.displayName}
+                      <CheckBadgeIcon className="h-5 w-5 ml-1 text-blue-500" />
+                    </div>
+                  ) : (
+                    <>{user?.displayName}</>
                   )}
                 </h4>
               </Link>
