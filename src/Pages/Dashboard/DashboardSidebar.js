@@ -1,6 +1,7 @@
 import {
   ArrowRightOnRectangleIcon,
   Bars3Icon,
+  CheckBadgeIcon,
 } from "@heroicons/react/24/solid";
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
@@ -58,7 +59,12 @@ function DashboardSidebar({ role }) {
               </Link>
               <Link to="/dashboard">
                 <h4 className="mx-2 mt-2 font-medium text-gray-800  hover:underline">
-                  {user?.displayName}
+                  {user?.displayName}{" "}
+                  {user?.emailVerified === true && (
+                    <>
+                      <CheckBadgeIcon className="h-5 w-5" />
+                    </>
+                  )}
                 </h4>
               </Link>
               <Link to="/dashboard">

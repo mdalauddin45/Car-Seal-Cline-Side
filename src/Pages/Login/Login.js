@@ -35,12 +35,19 @@ const Login = () => {
   };
 
   const handleGoogleSignin = () => {
-    signInWithGoogle().then((result) => {
-      console.log(result.user);
-      setAuthToken(result.user);
-      setLoading(false);
-      navigate(from, { replace: true });
-    });
+    signInWithGoogle()
+      .then((result) => {
+        console.log(result.user);
+        setAuthToken(result.user);
+        toast.success("Login Successful!");
+        setLoading(false);
+        navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        console.log(error);
+        setLoading(false);
+        toast.error(error.message);
+      });
   };
 
   // Pass reset
