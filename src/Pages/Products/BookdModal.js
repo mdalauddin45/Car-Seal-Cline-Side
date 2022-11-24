@@ -1,12 +1,15 @@
-import { set } from "date-fns";
-import React from "react";
+import { format, set } from "date-fns";
+import React, { useState } from "react";
 import { useContext } from "react";
+import toast from "react-hot-toast";
 import { AuthContext } from "../../contexts/AuthProvider";
 import PrimaryButton from "../../PrimaryButton";
 
 function BookdModal({ item, setItem }) {
   const { user } = useContext(AuthContext);
-  console.log(item);
+  //   console.log(item);
+  const [selected, setSelected] = useState(new Date());
+  const date = format(selected, "PP");
   const handleModalSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -16,11 +19,12 @@ function BookdModal({ item, setItem }) {
     const address = form.address.value;
     const booking = {
       email,
-      userName: user.displayName,
+      userName: user?.displayName,
       productName: item.name,
       phone,
       price,
       address,
+      date,
     };
     console.log(booking);
     fetch(`http://localhost:5000/bookings`, {
@@ -35,7 +39,6 @@ function BookdModal({ item, setItem }) {
         console.log(data);
         if (data.acknowledged) {
           toast.success("booking confrim");
-          refetch();
           setItem(null);
         } else {
           toast.error(data.message);

@@ -21,7 +21,7 @@ const googleProvider = new GoogleAuthProvider();
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
-  console.log(user);
+  // console.log(user);
   //1. Create User
   const createUser = (email, password) => {
     setLoading(true);
@@ -37,32 +37,26 @@ const AuthProvider = ({ children }) => {
     });
   };
 
-  //   3. Email Verify
-  const verifyEmail = () => {
-    setLoading(true);
-    return sendEmailVerification(auth.currentUser);
-  };
-
-  // 4. Google Signin
+  // 3. Google Signin
   const signInWithGoogle = () => {
     setLoading(true);
     return signInWithPopup(auth, googleProvider);
   };
 
-  // 5. Logout
+  // 4. Logout
   const logout = () => {
     setLoading(true);
     localStorage.removeItem("aircnc-token");
     return signOut(auth);
   };
 
-  //6. Login with Password
+  //5. Login with Password
   const signin = (email, password) => {
     setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
 
-  //7. Forget Password
+  //6. Forget Password
   const resetPassword = (email) => {
     setLoading(true);
     return sendPasswordResetEmail(auth, email);
@@ -85,7 +79,7 @@ const AuthProvider = ({ children }) => {
     user,
     createUser,
     updateUserProfile,
-    verifyEmail,
+
     signInWithGoogle,
     logout,
     signin,
