@@ -1,5 +1,7 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { Outlet } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthProvider";
+import DashboardSidebar from "../Pages/Dashboard/DashboardSidebar";
 
 const DashboardLayout = () => {
   const { user } = useContext(AuthContext);
@@ -31,7 +33,7 @@ const DashboardLayout = () => {
         ""
       ) : (
         <>
-          <Sidebar role={role} />
+          <DashboardSidebar role={role} />
           <div className="flex-1  md:ml-64">
             <div className="p-5">
               <Outlet />
