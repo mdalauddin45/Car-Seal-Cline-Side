@@ -19,6 +19,7 @@ function DashboardSidebar({ role }) {
   const handleToggle = () => {
     setActive(!isActive);
   };
+
   return (
     <>
       {/* Small Screen Navbar */}

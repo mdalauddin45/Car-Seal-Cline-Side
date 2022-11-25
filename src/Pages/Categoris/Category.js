@@ -2,25 +2,10 @@ import React from "react";
 import { useState } from "react";
 
 import { useEffect } from "react";
-const Category = ({ product, setProducts }) => {
+import { Link } from "react-router-dom";
+const Category = ({ product, setItem }) => {
   const [loading, setLoading] = useState(false);
-  const { name, location, image, originalprice, resaleprice, used, category } =
-    product;
-  // useEffect(() => {
-  //   fetch(`http://localhost:5000/categoris/Toyota`)
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       console.log(data)
-  //       // // console.log(data);
-  //       // const allItems = data;
-  //       // console.log(data);
-  //       // const categoryItems = allItems.filter((i) => i.category === category);
-  //       // console.log(categoryItems);
-  //       // setProducts(categoryItems);
-  //       // setLoading(false);
-  //     });
-  // }, [category]);
-  //   console.log(product);
+  const { name, location, image, originalprice, resaleprice, used } = product;
   return (
     <div>
       <div className="bg-[#eee] p-10">
@@ -33,13 +18,25 @@ const Category = ({ product, setProducts }) => {
           <div className="flex flex-col justify-between p-6 space-y-8">
             <div className="space-y-2">
               <h2 className="text-2xl font-semibold tracking-wide">
-                {name?.slice(0, 18) + "..."}
+                {name.slice(0, 18) + "..."}
               </h2>
               <p className="dark:text-gray-900">Location: {location}</p>
               <p className="text-red-400">Orginal Price: ${originalprice}</p>
               <p className="text-green-500">Resale Price: ${resaleprice}</p>
 
+              <p className="dark:text-gray-900">Used: {used}</p>
               <p className="dark:text-gray-900">Posted 4 months ago</p>
+            </div>
+            <div className="flex space-x-2 text-sm dark:text-gray-400">
+              <label
+                htmlFor="booking-modal"
+                // disabled={slots.length === 0}
+                onClick={() => setItem(product)}
+                className="hover:text-gray-100 bg-gradient-to-r from-emerald-500 to-lime-500 text-white px-2 py-1 rounded"
+              >
+                Bookd Now
+              </label>
+              <Link>Bookd Now</Link>
             </div>
             <button
               type="button"

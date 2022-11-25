@@ -16,14 +16,14 @@ function BookdModal({ item, setItem }) {
     const email = form.email.value;
     const phone = form.phone.value;
     const price = form.price.value;
-    const address = form.address.value;
+    const location = form.location.value;
     const booking = {
       email,
       userName: user?.displayName,
       productName: item.name,
       phone,
       price,
-      address,
+      location,
       date,
     };
     console.log(booking);
@@ -106,11 +106,11 @@ function BookdModal({ item, setItem }) {
               />
             </div>
             <div className="space-y-3 text-sm">
-              <label className="block text-sm">Address</label>
+              <label className="block text-sm">Location</label>
               <textarea
                 type="text"
-                name="address"
-                placeholder="Address"
+                name="location"
+                placeholder="location"
                 className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-100 dark:text-gray-900 focus:dark:border-green-400"
               />
             </div>
