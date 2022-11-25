@@ -5,6 +5,8 @@ import Categoris from "../Pages/Categoris/Categoris";
 import AllBuyer from "../Pages/Dashboard/Admin/AllBuyer";
 import AllSellers from "../Pages/Dashboard/Admin/AllSellers";
 import AddAProduct from "../Pages/Dashboard/Sellers/AddProducts/AddAProduct";
+import ManageProducts from "../Pages/Dashboard/Sellers/ManageProducts";
+import MyBuyers from "../Pages/Dashboard/Sellers/MyBuyers";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import Blog from "../Pages/Shared/Blog";
@@ -51,6 +53,22 @@ export const router = createBrowserRouter([
         element: (
           <SellerRoute>
             <AddAProduct></AddAProduct>
+          </SellerRoute>
+        ),
+      },
+      {
+        path: "my-buyers",
+        element: (
+          <SellerRoute>
+            <MyBuyers></MyBuyers>
+          </SellerRoute>
+        ),
+      },
+      {
+        path: "manage-products",
+        element: (
+          <SellerRoute>
+            <ManageProducts></ManageProducts>
           </SellerRoute>
         ),
       },

@@ -31,7 +31,7 @@ const AddAProduct = () => {
     setLoading(true);
     imageUpload(image)
       .then((res) => {
-        const homeData = {
+        const categoriData = {
           location,
           title,
           from,
@@ -48,10 +48,10 @@ const AddAProduct = () => {
             email: user?.email,
           },
         };
-        addProduct(homeData).then((data) => {
+        addProduct(categoriData).then((data) => {
           console.log(data);
           setLoading(false);
-          toast.success("Home Added!");
+          toast.success(" Added Successfuly !");
           navigate("/dashboard/manage-homes");
         });
       })

@@ -41,32 +41,6 @@ const AddProductForm = ({
                 required
               />
             </div>
-            {/* <div className="flex justify-between ">
-              <div className="shadow-md rounded-md my-2 p-3 flex justify-between items-center">
-                <div>
-                  <p className="block text-sm text-gray-500">From</p>
-                  <DatePicker
-                    selected={arrivalDate}
-                    onChange={(date) => setArrivalDate(date)}
-                    className="w-2/3"
-                  />
-                </div>
-
-                <CalendarIcon className="h5 w-5" />
-              </div>
-              <div className="shadow-md rounded-md my-2 p-3 flex justify-between items-center">
-                <div>
-                  <p className="block text-sm text-gray-500">To</p>
-                  <DatePicker
-                    selected={departureDate}
-                    onChange={(date) => setDepartureDate(date)}
-                    className="w-2/3"
-                  />
-                </div>
-
-                <CalendarIcon className="h5 w-5" />
-              </div>
-            </div> */}
 
             <div className="flex justify-between gap-2">
               <div className="space-y-1 text-sm">
