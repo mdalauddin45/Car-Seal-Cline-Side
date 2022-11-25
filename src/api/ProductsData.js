@@ -20,7 +20,7 @@ export const addProduct = async (categoriData) => {
     method: "POST",
     headers: {
       "content-type": "application/json",
-      authorization: `Bearer ${localStorage.getItem("aircnc-token")}`,
+      authorization: `Bearer ${localStorage.getItem("garibazar-token")}`,
     },
     body: JSON.stringify(categoriData),
   });
@@ -29,22 +29,22 @@ export const addProduct = async (categoriData) => {
   return data;
 };
 
-//get all homes
+//get all products
 export const getAllHome = async () => {
   const response = await fetch(`${process.env.REACT_APP_API_URL}/homes`);
   const data = await response.json();
   return data;
 };
 
-//get filtered homes for hosts
-export const getHomes = async (email) => {
+//get filtered products for seller
+export const getProducts = async (email) => {
   const response = await fetch(
-    `${process.env.REACT_APP_API_URL}/homes/${email}`,
+    `${process.env.REACT_APP_API_URL}/products/${email}`,
     {
       method: "GET",
       headers: {
         "content-type": "application/json",
-        authorization: `Bearer ${localStorage.getItem("aircnc-token")}`,
+        authorization: `Bearer ${localStorage.getItem("garibazar-token")}`,
       },
     }
   );
@@ -58,7 +58,7 @@ export const updateHome = async (categoriData) => {
     method: "PUT",
     headers: {
       "content-type": "application/json",
-      authorization: `Bearer ${localStorage.getItem("aircnc-token")}`,
+      authorization: `Bearer ${localStorage.getItem("garibazar-token")}`,
     },
     body: JSON.stringify(categoriData),
   });
@@ -73,7 +73,7 @@ export const deleteHome = async (id) => {
     method: "DELETE",
     headers: {
       "content-type": "application/json",
-      authorization: `Bearer ${localStorage.getItem("aircnc-token")}`,
+      authorization: `Bearer ${localStorage.getItem("garibazar-token")}`,
     },
   });
   const result = await response.json();
