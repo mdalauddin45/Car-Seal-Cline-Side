@@ -21,7 +21,7 @@ const Login = () => {
     signin(email, password)
       .then((result) => {
         // console.log(result.user.email);
-        toast.success("Login Successful.....!");
+        toast.success("Login Successful!");
         // Get Token
         setLoading(false);
         setAuthToken(result.user);

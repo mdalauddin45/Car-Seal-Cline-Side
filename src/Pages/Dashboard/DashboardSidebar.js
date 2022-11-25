@@ -9,7 +9,7 @@ import { AuthContext } from "../../contexts/AuthProvider";
 import PrimaryButton from "../../PrimaryButton";
 import AdminMenu from "./Admin/AdminMenu";
 import BuyerMenu from "./BuyerMenu";
-import SellerMenu from "./SellerMenu";
+import SellerMenu from "./Sellers/SellerMenu";
 
 function DashboardSidebar({ role }) {
   const { user, logout } = useContext(AuthContext);

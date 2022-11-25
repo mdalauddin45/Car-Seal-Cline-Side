@@ -1,14 +1,7 @@
-import { CalendarIcon } from "@heroicons/react/24/solid";
 import React from "react";
-import SmallSpinner from "../../../components/Spinner/SmallSpinner";
-import DatePicker from "react-datepicker";
-
+import SmallSpinner from "../../../../components/Spinner/SmallSpinner";
 const AddProductForm = ({
   handleSubmit,
-  arrivalDate,
-  setArrivalDate,
-  departureDate,
-  setDepartureDate,
   loading,
   handleImageChange,
   preview,

@@ -1,8 +1,8 @@
 import React, { useContext, useState } from "react";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
-import { addProduct, imageUpload } from "../../../api/ProductsData";
-import { AuthContext } from "../../../contexts/AuthProvider";
+import { addProduct, imageUpload } from "../../../../api/ProductsData";
+import { AuthContext } from "../../../../contexts/AuthProvider";
 import AddProductForm from "./AddProductForm";
 
 const AddAProduct = () => {
