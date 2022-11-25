@@ -142,7 +142,13 @@ const AddProductForm = ({
               type="submit"
               className="block w-full p-3 text-center font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-gradient-to-r from-emerald-500 to-lime-500 hover:bg-gray-200 hover:text-gray-700 focus:shadow-outline focus:outline-none"
             >
-              {loading ? <SmallSpinner /> : "Save & Continue"}
+              {loading ? (
+                <div className="px-[50%]">
+                  <SmallSpinner />
+                </div>
+              ) : (
+                "Save & Continue"
+              )}
             </button>
           </form>
         </div>

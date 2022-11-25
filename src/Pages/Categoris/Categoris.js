@@ -16,7 +16,7 @@ const Categoris = () => {
   const [cat] = catData;
   const category = cat.category;
   useEffect(() => {
-    fetch(`http://localhost:5000/categoris/${category}`)
+    fetch(`http://localhost:5000/products/${category}`)
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);

@@ -58,7 +58,7 @@ const AddAProduct = () => {
           console.log(data);
           setLoading(false);
           toast.success(" Added Successfuly !");
-          navigate("/dashboard/manage-homes");
+          navigate("/dashboard/manage-products");
         });
       })
       .catch((err) => {
@@ -68,7 +68,7 @@ const AddAProduct = () => {
   };
 
   const handleImageChange = (image) => {
-    console.log(image);
+    // console.log(image);
     setPreview(window.URL.createObjectURL(image));
     setUploadButtonText(image.name);
   };

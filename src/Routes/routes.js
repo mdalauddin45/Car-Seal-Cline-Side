@@ -28,14 +28,14 @@ export const router = createBrowserRouter([
       { path: "/signup", element: <Signup></Signup> },
       { path: "/blog", element: <Blog></Blog> },
       {
-        path: "/categoris/:category",
+        path: "/products/:category",
         element: (
           <PrivateRoute>
             <Categoris></Categoris>
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/categoris/${params.category}`),
+          fetch(`http://localhost:5000/products/${params.category}`),
       },
     ],
   },
