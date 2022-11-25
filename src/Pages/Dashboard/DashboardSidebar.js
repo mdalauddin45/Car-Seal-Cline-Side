@@ -81,9 +81,15 @@ function DashboardSidebar({ role }) {
           <div className="flex flex-col justify-between flex-1 mt-6">
             <nav>
               {role && role !== "saller" ? (
-                <>{role === "admin" ? <AdminMenu /> : <SellerMenu />} </>
+                <>
+                  {role === "admin" ? (
+                    <AdminMenu role={role} />
+                  ) : (
+                    <SellerMenu role={role} />
+                  )}
+                </>
               ) : (
-                <BuyerMenu />
+                <BuyerMenu role={role} />
               )}
             </nav>
           </div>

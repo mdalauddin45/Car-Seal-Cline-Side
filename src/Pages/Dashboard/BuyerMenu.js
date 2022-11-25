@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { FingerPrintIcon, UserPlusIcon } from "@heroicons/react/24/solid";
 
-const BuyerMenu = () => {
+const BuyerMenu = ({ role }) => {
   return (
     <>
       <NavLink

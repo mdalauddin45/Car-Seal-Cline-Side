@@ -2,7 +2,7 @@ import { UserGroupIcon, UserIcon } from "@heroicons/react/24/solid";
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-const AdminMenu = () => {
+const AdminMenu = ({ role }) => {
   return (
     <>
       <NavLink
