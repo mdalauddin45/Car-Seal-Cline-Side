@@ -6,20 +6,20 @@ const Category = ({ product, setProducts }) => {
   const [loading, setLoading] = useState(false);
   const { name, location, image, originalprice, resaleprice, used, category } =
     product;
-  useEffect(() => {
-    fetch(`http://localhost:5000/categoris/${category}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setProducts(data);
-        // // console.log(data);
-        // const allItems = data;
-        // console.log(data);
-        // const categoryItems = allItems.filter((i) => i.category === category);
-        // console.log(categoryItems);
-        // setProducts(categoryItems);
-        // setLoading(false);
-      });
-  }, []);
+  // useEffect(() => {
+  //   fetch(`http://localhost:5000/categoris/Toyota`)
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       console.log(data)
+  //       // // console.log(data);
+  //       // const allItems = data;
+  //       // console.log(data);
+  //       // const categoryItems = allItems.filter((i) => i.category === category);
+  //       // console.log(categoryItems);
+  //       // setProducts(categoryItems);
+  //       // setLoading(false);
+  //     });
+  // }, [category]);
   //   console.log(product);
   return (
     <div>
@@ -33,7 +33,7 @@ const Category = ({ product, setProducts }) => {
           <div className="flex flex-col justify-between p-6 space-y-8">
             <div className="space-y-2">
               <h2 className="text-2xl font-semibold tracking-wide">
-                {name.slice(0, 18) + "..."}
+                {name?.slice(0, 18) + "..."}
               </h2>
               <p className="dark:text-gray-900">Location: {location}</p>
               <p className="text-red-400">Orginal Price: ${originalprice}</p>

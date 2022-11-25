@@ -30,7 +30,7 @@ const HomeCategory = () => {
         {uniqData?.map((cat, i) => (
           <Link
             key={i}
-            to={`/category/${cat}`}
+            to={`/categoris/${cat}`}
             className="px-8 py-3 text-lg font-semibold border rounded dark:border-gray-100  hover:bg-green-400 hover:text-white"
           >
             {cat}
