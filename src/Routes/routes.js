@@ -29,6 +29,8 @@ export const router = createBrowserRouter([
             <Categoris></Categoris>
           </PrivateRoute>
         ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/categoris/${params.category}`),
       },
     ],
   },
