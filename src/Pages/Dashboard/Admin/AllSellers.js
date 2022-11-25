@@ -18,7 +18,7 @@ const AllSellers = () => {
   };
   //   console.log(users);
   const sellers = users.filter((x) => x.options !== users.options);
-  console.log(sellers);
+  //   console.log(sellers);
   return (
     <div className="container mx-auto px-4 sm:px-8">
       <div className="text-center">

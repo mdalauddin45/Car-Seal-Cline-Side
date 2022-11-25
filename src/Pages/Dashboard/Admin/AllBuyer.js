@@ -18,7 +18,7 @@ const AllBuyer = () => {
   };
   //   console.log(users);
   const buyers = users.filter((x) => x.role === users.role);
-  console.log(buyers);
+  //   console.log(buyers);
   return (
     <div className="container mx-auto px-4 sm:px-8">
       <div className="text-center">
