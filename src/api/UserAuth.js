@@ -40,6 +40,21 @@ export const getAllUsers = async () => {
 
   return users;
 };
+//role of admin seller and buyer
+export const getRole = async (email) => {
+  const response = await fetch(
+    `${process.env.REACT_APP_API_URL}/user/${email}`,
+    {
+      method: "GET",
+      headers: {
+        "content-type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("garibazar-token")}`,
+      },
+    }
+  );
+  const user = await response.json();
+  return user?.role;
+};
 
 export const makeSealer = async (user) => {
   delete user._id;

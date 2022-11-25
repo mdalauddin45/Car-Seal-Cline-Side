@@ -58,7 +58,6 @@ const Signup = () => {
                 if (userData.options === "seller") {
                   setRole("seller");
                   makeSealer(userData);
-                  getAllUsers();
                 }
               })
               .catch((err) => {

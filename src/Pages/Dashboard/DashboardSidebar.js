@@ -20,16 +20,7 @@ function DashboardSidebar({ role }) {
   const handleToggle = () => {
     setActive(!isActive);
   };
-  useEffect(() => {
-    fetch(`http://localhost:5000/user/${user?.email}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setVerified(data);
-      })
-      .catch((error) => {
-        console.log(error.message);
-      });
-  }, []);
+  console.log(role);
   return (
     <>
       {/* Small Screen Navbar */}
@@ -70,7 +61,7 @@ function DashboardSidebar({ role }) {
               </Link>
               <Link to="/dashboard">
                 <h4 className="mx-2 mt-2 font-medium text-gray-800  hover:underline">
-                  {verified.role === "seller" ? (
+                  {role === "seller" ? (
                     <div className="flex">
                       {user?.displayName}
                       <CheckBadgeIcon className="h-5 w-5 ml-1 text-blue-500" />
