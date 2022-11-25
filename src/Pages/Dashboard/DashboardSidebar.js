@@ -4,6 +4,7 @@ import {
   CheckBadgeIcon,
 } from "@heroicons/react/24/solid";
 import React, { useContext, useState } from "react";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
 import PrimaryButton from "../../PrimaryButton";
@@ -14,12 +15,21 @@ import SellerMenu from "./SellerMenu";
 function DashboardSidebar({ role }) {
   const { user, logout } = useContext(AuthContext);
   const [isActive, setActive] = useState("false");
-
+  const [verified, setVerified] = useState([]);
   // Sidebar Responsive Handler
   const handleToggle = () => {
     setActive(!isActive);
   };
-
+  useEffect(() => {
+    fetch(`http://localhost:5000/user/${user?.email}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setVerified(data);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  }, []);
   return (
     <>
       {/* Small Screen Navbar */}
@@ -60,7 +70,7 @@ function DashboardSidebar({ role }) {
               </Link>
               <Link to="/dashboard">
                 <h4 className="mx-2 mt-2 font-medium text-gray-800  hover:underline">
-                  {user?.emailVerified === true ? (
+                  {verified.role === "seller" ? (
                     <div className="flex">
                       {user?.displayName}
                       <CheckBadgeIcon className="h-5 w-5 ml-1 text-blue-500" />

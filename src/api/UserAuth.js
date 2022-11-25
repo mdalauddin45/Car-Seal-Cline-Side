@@ -35,7 +35,7 @@ export const getAllUsers = async () => {
       authorization: `Bearer ${localStorage.getItem("garibazar-token")}`,
     },
   });
-  console.log("test");
+  // console.log("test");
   const users = await response.json();
 
   return users;
