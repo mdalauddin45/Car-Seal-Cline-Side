@@ -154,7 +154,7 @@ const Signup = () => {
             <div>
               <div className="flex justify-between mb-2">
                 <label htmlFor="useraccount" className="text-sm">
-                  Choice in option
+                  Choice Your Account Type
                 </label>
               </div>
               <select

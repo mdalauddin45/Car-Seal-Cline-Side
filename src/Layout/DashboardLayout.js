@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
+import { getRole } from "../api/UserAuth";
 import { AuthContext } from "../contexts/AuthProvider";
 import DashboardSidebar from "../Pages/Dashboard/DashboardSidebar";
 
@@ -8,21 +9,9 @@ const DashboardLayout = () => {
   const [role, setRole] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  const adminRole = async (email) => {
-    const response = await fetch(`http://localhost:5000/user/${email}`, {
-      method: "GET",
-      headers: {
-        "content-type": "application/json",
-        authorization: `Bearer ${localStorage.getItem("garibazar-token")}`,
-      },
-    });
-    const user = await response.json();
-    return user?.role;
-  };
-
   useEffect(() => {
     setLoading(true);
-    adminRole(user?.email).then((data) => {
+    getRole(user?.email).then((data) => {
       setRole(data);
       setLoading(false);
     });
