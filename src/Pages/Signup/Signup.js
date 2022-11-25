@@ -4,7 +4,7 @@ import { AuthContext } from "../../contexts/AuthProvider";
 import toast from "react-hot-toast";
 import PrimaryButton from "../../PrimaryButton";
 import SmallSpinner from "../../components/Spinner/SmallSpinner";
-import { getAllUsers, makeSealer, setAuthToken } from "../../api/UserAuth";
+import { makeSealer, setAuthToken } from "../../api/UserAuth";
 import { useState } from "react";
 
 const Signup = () => {

@@ -4,7 +4,6 @@ import {
   CheckBadgeIcon,
 } from "@heroicons/react/24/solid";
 import React, { useContext, useState } from "react";
-import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
 import PrimaryButton from "../../PrimaryButton";
@@ -15,7 +14,6 @@ import SellerMenu from "./SellerMenu";
 function DashboardSidebar({ role }) {
   const { user, logout } = useContext(AuthContext);
   const [isActive, setActive] = useState("false");
-  const [verified, setVerified] = useState([]);
   // Sidebar Responsive Handler
   const handleToggle = () => {
     setActive(!isActive);
