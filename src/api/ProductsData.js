@@ -14,15 +14,15 @@ export const imageUpload = async (image) => {
   }
 };
 
-// Add a home
-export const addProduct = async (homeData) => {
+// Add a Category
+export const addProduct = async (categoriData) => {
   const response = await fetch(`${process.env.REACT_APP_API_URL}/products`, {
     method: "POST",
     headers: {
       "content-type": "application/json",
       authorization: `Bearer ${localStorage.getItem("aircnc-token")}`,
     },
-    body: JSON.stringify(homeData),
+    body: JSON.stringify(categoriData),
   });
 
   const data = await response.json();
@@ -53,14 +53,14 @@ export const getHomes = async (email) => {
 };
 
 // update a home
-export const updateHome = async (homeData) => {
+export const updateHome = async (categoriData) => {
   const response = await fetch(`${process.env.REACT_APP_API_URL}/homes`, {
     method: "PUT",
     headers: {
       "content-type": "application/json",
       authorization: `Bearer ${localStorage.getItem("aircnc-token")}`,
     },
-    body: JSON.stringify(homeData),
+    body: JSON.stringify(categoriData),
   });
 
   const data = await response.json();

@@ -16,41 +16,28 @@ const AddProductForm = ({
             className="space-y-6 ng-untouched ng-pristine ng-valid"
           >
             <div className="space-y-1 text-sm">
-              <label htmlFor="title" className="block text-gray-600">
+              <label htmlFor="name" className="block text-gray-600">
                 Name of Car
               </label>
               <input
                 className="w-full px-4 py-3 text-gray-800 border border-green-300 focus:outline-green-500 rounded-md bg-green-50"
-                name="title"
-                id="title"
+                name="name"
+                id="name"
                 type="text"
                 placeholder="Enter Your Car Name"
-                required
-              />
-            </div>
-            <div className="space-y-1 text-sm">
-              <label htmlFor="location" className="block text-gray-600">
-                Location
-              </label>
-              <input
-                className="w-full px-4 py-3 text-gray-800 border border-green-300 focus:outline-green-500 rounded-md bg-green-50"
-                name="location"
-                id="location"
-                type="text"
-                placeholder="Location"
                 required
               />
             </div>
 
             <div className="flex justify-between gap-2">
               <div className="space-y-1 text-sm">
-                <label htmlFor="price" className="block text-gray-600">
+                <label htmlFor="Orginal_Price" className="block text-gray-600">
                   Orginal Price
                 </label>
                 <input
                   className="w-full px-4 py-3 text-gray-800 border border-green-300 focus:outline-green-500 rounded-md bg-green-50"
-                  name="price"
-                  id="price"
+                  name="oprice"
+                  id="Orginal_Price"
                   type="number"
                   placeholder="Orginal Price"
                   required
@@ -58,13 +45,13 @@ const AddProductForm = ({
               </div>
 
               <div className="space-y-1 text-sm">
-                <label htmlFor="price" className="block text-gray-600">
+                <label htmlFor="Resale_Price" className="block text-gray-600">
                   Resale Price
                 </label>
                 <input
                   className="w-full px-4 py-3 text-gray-800 border border-green-300 focus:outline-green-500 rounded-md bg-green-50"
-                  name="Resale_Price"
-                  id="price"
+                  name="rprice"
+                  id="Resale_Price"
                   type="number"
                   placeholder="Resale Price"
                   required
@@ -74,13 +61,13 @@ const AddProductForm = ({
 
             <div className="flex justify-between gap-2">
               <div className="space-y-1 text-sm">
-                <label htmlFor="number" className="block text-gray-600">
+                <label htmlFor="year" className="block text-gray-600">
                   Year of used
                 </label>
                 <input
                   className="w-full px-4 py-3 text-gray-800 border border-green-300 focus:outline-green-500 rounded-md bg-green-50"
-                  name="number"
-                  id="number"
+                  name="years"
+                  id="year"
                   type="number"
                   placeholder="Enter years of used"
                   required
@@ -93,10 +80,39 @@ const AddProductForm = ({
                 </label>
                 <input
                   className="w-full px-4 py-3 text-gray-800 border border-green-300 focus:outline-green-500 rounded-md bg-green-50"
-                  name="mobile_number"
+                  name="number"
                   id="mobile_number"
                   type="number"
                   placeholder="Enter Your Mobile"
+                  required
+                />
+              </div>
+            </div>
+            <div className="flex justify-between gap-2">
+              <div className="space-y-1 text-sm">
+                <label htmlFor="location" className="block text-gray-600">
+                  Location
+                </label>
+                <input
+                  className="w-full px-4 py-3 text-gray-800 border border-green-300 focus:outline-green-500 rounded-md bg-green-50"
+                  name="location"
+                  id="location"
+                  type="text"
+                  placeholder="Location"
+                  required
+                />
+              </div>
+
+              <div className="space-y-1 text-sm">
+                <label htmlFor="category" className="block text-gray-600">
+                  Category
+                </label>
+                <input
+                  className="w-full px-4 py-3 text-gray-800 border border-green-300 focus:outline-green-500 rounded-md bg-green-50"
+                  name="category"
+                  id="category"
+                  type="text"
+                  placeholder="Category"
                   required
                 />
               </div>
@@ -120,18 +136,6 @@ const AddProductForm = ({
               {preview && (
                 <img src={preview} className="w-16 h-16" alt="preview_img" />
               )}
-            </div>
-
-            <div className="space-y-1 text-sm">
-              <label htmlFor="description" className="block text-gray-600">
-                Description
-              </label>
-
-              <textarea
-                id="description"
-                className="block rounded-md focus:green-300 w-full h-20 px-4 py-3 text-gray-800 bg-green-50 border border-green-300 focus:outline-green-500 "
-                name="description"
-              ></textarea>
             </div>
 
             <button
