@@ -117,6 +117,35 @@ const AddProductForm = ({
                 />
               </div>
             </div>
+            <div className="flex justify-between gap-2">
+              <div className="space-y-1 text-sm">
+                <label htmlFor="condition" className="block text-gray-600">
+                  Condition
+                </label>
+                <select
+                  name="condition"
+                  className="select select-bordered  w-full bg-white "
+                >
+                  <option value="excellent">Excellent</option>
+                  <option value="good">Good</option>
+                  <option value="fair">Fair</option>
+                </select>
+              </div>
+
+              <div className="space-y-1 text-sm">
+                <label htmlFor="description" className="block text-gray-600">
+                  Description
+                </label>
+                <textarea
+                  className="w-full px-4 py-3 text-gray-800 border border-green-300 focus:outline-green-500 rounded-md bg-green-50"
+                  name="description"
+                  id="description"
+                  type="text"
+                  placeholder="description"
+                  required
+                />
+              </div>
+            </div>
 
             <div className="flex space-x-4 items-center">
               <label
