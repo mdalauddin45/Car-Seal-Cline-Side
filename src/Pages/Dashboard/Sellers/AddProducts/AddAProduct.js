@@ -25,7 +25,8 @@ const AddAProduct = () => {
     const number = form.number.value;
     const location = form.location.value;
     const category = form.category.value;
-    const condition = event.target.condition.value;
+    const condition = form.condition.value;
+    const description = form.description.value;
     const image = event.target.image.files[0];
     console.log(
       name,
@@ -36,7 +37,8 @@ const AddAProduct = () => {
       number,
       location,
       image,
-      condition
+      condition,
+      description
     );
     setLoading(true);
     imageUpload(image)
@@ -56,6 +58,7 @@ const AddAProduct = () => {
           },
           published: date,
           condition,
+          description,
         };
         addProduct(categoriData).then((data) => {
           console.log(data);
