@@ -54,7 +54,7 @@ const ManageProducts = () => {
                   </th>
                 </tr>
               </thead>
-              <tbody>
+              {/* <tbody>
                 {products &&
                   products.map((product) => (
                     <ProductDataRow
@@ -63,7 +63,7 @@ const ManageProducts = () => {
                       fetchProducts={fetchProducts}
                     />
                   ))}
-              </tbody>
+              </tbody> */}
             </table>
           </div>
         </div>

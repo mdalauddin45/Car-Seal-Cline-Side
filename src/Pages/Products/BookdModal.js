@@ -18,6 +18,7 @@ function BookdModal({ item, setItem }) {
     const price = form.price.value;
     const location = form.location.value;
     const booking = {
+      image: item.image,
       email,
       userName: user?.displayName,
       productName: item.name,

@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import { deleteBooking } from "../../../api/Booking";
 
 const TableRow = ({ booking, fetchBookings }) => {
+  const { image, location, price, productName, _id } = booking;
   const handleDelet = () => {
-    console.log(booking._id);
-    deleteBooking(booking._id);
+    console.log(_id);
+    deleteBooking(_id);
   };
   //   console.log(booking);
+
   return (
     <tr>
       <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
@@ -14,22 +16,22 @@ const TableRow = ({ booking, fetchBookings }) => {
           <div className="flex-shrink-0">
             <div className="block relative">
               <img
-                alt="profile"
-                src=""
-                className="mx-auto object-cover rounded h-10 w-15 "
+                alt="/"
+                src={image}
+                className="mx-auto  rounded h-32 w-32 "
               />
             </div>
           </div>
           <div className="ml-3">
-            <p className="text-gray-900 whitespace-no-wrap">jdfkj</p>
+            <p className="text-gray-900 whitespace-no-wrap">{productName} </p>
           </div>
         </div>
       </td>
       <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-        <p className="text-gray-900 whitespace-no-wrap">hihksdhff</p>
+        <p className="text-gray-900 whitespace-no-wrap">{location}</p>
       </td>
       <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-        <p className="text-gray-900 whitespace-no-wrap">$10</p>
+        <p className="text-gray-900 whitespace-no-wrap">${price}</p>
       </td>
       <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
         <span

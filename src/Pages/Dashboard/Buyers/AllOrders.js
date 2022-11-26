@@ -6,12 +6,16 @@ import TableRow from "./TableRow";
 function AllOrders() {
   const { user } = useContext(AuthContext);
   const [bookings, setBookings] = useState([]);
+  const [loading, setLoading] = useState(false);
   const fetchBookings = () =>
-    getAllBookings(user?.email).then((data) => setBookings(data));
+    getAllBookings(user?.email).then((data) => {
+      setBookings(data);
+      setLoading(!loading);
+    });
 
   useEffect(() => {
     fetchBookings();
-  }, [user]);
+  }, [user, loading]);
 
   return (
     <>
