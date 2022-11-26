@@ -38,8 +38,9 @@ const ManageProducts = () => {
                     scope="col"
                     className="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal"
                   >
-                    Price
+                    resaleprice
                   </th>
+
                   <th
                     scope="col"
                     className="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal"
@@ -54,7 +55,7 @@ const ManageProducts = () => {
                   </th>
                 </tr>
               </thead>
-              {/* <tbody>
+              <tbody>
                 {products &&
                   products.map((product) => (
                     <ProductDataRow
@@ -63,7 +64,7 @@ const ManageProducts = () => {
                       fetchProducts={fetchProducts}
                     />
                   ))}
-              </tbody> */}
+              </tbody>
             </table>
           </div>
         </div>

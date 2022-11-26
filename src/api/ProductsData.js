@@ -39,7 +39,7 @@ export const getAllProduct = async () => {
 //get filtered products for seller
 export const getProducts = async (email) => {
   const response = await fetch(
-    `${process.env.REACT_APP_API_URL}/products/${email}`,
+    `${process.env.REACT_APP_API_URL}/products?email=${email}`,
     {
       method: "GET",
       headers: {
@@ -48,8 +48,8 @@ export const getProducts = async (email) => {
       },
     }
   );
-  const data = await response.json();
-  return data;
+  const products = await response.json();
+  return products;
 };
 
 // update a Product
