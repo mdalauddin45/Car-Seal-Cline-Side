@@ -1,11 +1,19 @@
 import React from "react";
-import { useState } from "react";
-
-import { useEffect } from "react";
+import { CheckBadgeIcon } from "@heroicons/react/24/solid";
 import { Link } from "react-router-dom";
 const Category = ({ product, setItem }) => {
-  const [loading, setLoading] = useState(false);
-  const { name, location, image, originalprice, resaleprice, used } = product;
+  // const [loading, setLoading] = useState(false);
+  const {
+    name,
+    location,
+    image,
+    originalprice,
+    resaleprice,
+    used,
+    published,
+    seller,
+  } = product;
+  console.log(product);
   return (
     <div>
       <div className="bg-[#eee] p-10">
@@ -24,8 +32,19 @@ const Category = ({ product, setItem }) => {
               <p className="text-red-400">Orginal Price: ${originalprice}</p>
               <p className="text-green-500">Resale Price: ${resaleprice}</p>
 
-              <p className="dark:text-gray-900">Used: {used}</p>
-              <p className="dark:text-gray-900">Posted 4 months ago</p>
+              <p className="dark:text-gray-900">Used: {used} year</p>
+              <p className="dark:text-gray-900">Posted {published}</p>
+              <p className="dark:text-gray-900 flex">
+                Seller Name:
+                {seller?.name ? (
+                  <small className="flex text-sm px-1 py-1">
+                    {seller?.name}
+                    <CheckBadgeIcon className="h-5 w-5 text-blue-500" />{" "}
+                  </small>
+                ) : (
+                  <></>
+                )}
+              </p>
             </div>
             <div className="flex space-x-2 text-sm dark:text-gray-400">
               <label
