@@ -31,7 +31,7 @@ export const addProduct = async (categoriData) => {
 
 //get all products
 export const getAllHome = async () => {
-  const response = await fetch(`${process.env.REACT_APP_API_URL}/homes`);
+  const response = await fetch(`${process.env.REACT_APP_API_URL}/products`);
   const data = await response.json();
   return data;
 };
@@ -69,13 +69,16 @@ export const updateHome = async (categoriData) => {
 
 // Delete a home
 export const deleteproduct = async (id) => {
-  const response = await fetch(`${process.env.REACT_APP_API_URL}/home/${id}`, {
-    method: "DELETE",
-    headers: {
-      "content-type": "application/json",
-      authorization: `Bearer ${localStorage.getItem("garibazar-token")}`,
-    },
-  });
+  const response = await fetch(
+    `${process.env.REACT_APP_API_URL}/products/${id}`,
+    {
+      method: "DELETE",
+      headers: {
+        "content-type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("garibazar-token")}`,
+      },
+    }
+  );
   const result = await response.json();
   return result;
 };

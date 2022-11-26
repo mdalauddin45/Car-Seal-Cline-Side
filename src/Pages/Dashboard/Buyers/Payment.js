@@ -7,20 +7,20 @@ import CheckOut from "./CheckOut";
 
 function Payment() {
   const booking = useLoaderData();
-  const { treatment, price, appoinmentDate, slot } = booking;
-  const stripePromise = loadStripe(process.env.REACT_APP_PK_key);
-  // console.log(stripePromise);
-  const navigation = useNavigation();
 
-  if (navigation.state === "loading") {
-    return <button className="btn btn-square loading"></button>;
-  }
+  const { productName, price } = booking;
+  const stripePromise = loadStripe(process.env.REACT_APP_PK_key);
+  console.log(stripePromise);
+  //   const navigation = useNavigation();
+  //   console.log(booking);
+  //   if (navigation.state === "loading") {
+  //     return <button className="btn btn-square loading"></button>;
+  //   }
+  console.log(booking);
   return (
-    <div>
-      <h1 className="text-3xl">Payment for {treatment}</h1>
-      <p className="text-xl">
-        Please Pay {price} for you Appoinment on {appoinmentDate} at {slot}{" "}
-      </p>
+    <div className="text-black">
+      <h1 className="text-3xl ">Payment for {productName} </h1>
+      <p className="text-xl">Please Pay {price} for you Order</p>
       <div className="w-96 my-6 ">
         <Elements stripe={stripePromise}>
           <CheckOut booking={booking} />

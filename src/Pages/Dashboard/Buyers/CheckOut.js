@@ -19,7 +19,7 @@ const CheckOut = ({ booking }) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        authorization: `bearer ${localStorage.getItem("accessToken")}`,
+        authorization: `bearer ${localStorage.getItem("garibazar-token")}`,
       },
       body: JSON.stringify({ price }),
     })
