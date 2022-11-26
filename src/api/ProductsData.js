@@ -68,7 +68,7 @@ export const updateHome = async (categoriData) => {
 };
 
 // Delete a home
-export const deleteHome = async (id) => {
+export const deleteproduct = async (id) => {
   const response = await fetch(`${process.env.REACT_APP_API_URL}/home/${id}`, {
     method: "DELETE",
     headers: {
