@@ -25,7 +25,10 @@ const CheckOut = ({ booking }) => {
       body: JSON.stringify({ price }),
     })
       .then((res) => res.json())
-      .then((data) => setClientSecret(data.clientSecret));
+      .then((data) => setClientSecret(data.clientSecret))
+      .catch((err) => {
+        console.log(err);
+      });
   }, [price]);
 
   const handleSubmit = async (event) => {

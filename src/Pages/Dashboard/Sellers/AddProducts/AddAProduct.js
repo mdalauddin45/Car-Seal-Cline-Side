@@ -55,6 +55,7 @@ const AddAProduct = () => {
           seller: {
             name: user?.displayName,
             image: user?.photoURL,
+            email: user?.email,
           },
           published: date,
           condition,

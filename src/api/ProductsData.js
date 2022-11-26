@@ -1,5 +1,5 @@
 export const imageUpload = async (image) => {
-  console.log(image);
+  // console.log(image);
   if (image) {
     const formData = new FormData();
     formData.append("image", image);
@@ -30,7 +30,7 @@ export const addProduct = async (categoriData) => {
 };
 
 //get all products
-export const getAllHome = async () => {
+export const getAllProduct = async () => {
   const response = await fetch(`${process.env.REACT_APP_API_URL}/products`);
   const data = await response.json();
   return data;
@@ -52,9 +52,9 @@ export const getProducts = async (email) => {
   return data;
 };
 
-// update a home
-export const updateHome = async (categoriData) => {
-  const response = await fetch(`${process.env.REACT_APP_API_URL}/homes`, {
+// update a Product
+export const updateProduct = async (categoriData) => {
+  const response = await fetch(`${process.env.REACT_APP_API_URL}/products`, {
     method: "PUT",
     headers: {
       "content-type": "application/json",
@@ -67,10 +67,10 @@ export const updateHome = async (categoriData) => {
   return data;
 };
 
-// Delete a home
+// Delete a Products
 export const deleteproduct = async (id) => {
   const response = await fetch(
-    `${process.env.REACT_APP_API_URL}/products/${id}`,
+    `${process.env.REACT_APP_API_URL}/product/${id}`,
     {
       method: "DELETE",
       headers: {

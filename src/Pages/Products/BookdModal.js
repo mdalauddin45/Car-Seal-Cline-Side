@@ -32,6 +32,7 @@ function BookdModal({ item, setItem }) {
       method: "POST",
       headers: {
         "content-type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("garibazar-token")}`,
       },
       body: JSON.stringify(booking),
     })

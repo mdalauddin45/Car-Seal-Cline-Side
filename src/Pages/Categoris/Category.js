@@ -1,6 +1,5 @@
 import React from "react";
 import { CheckBadgeIcon } from "@heroicons/react/24/solid";
-import { Link } from "react-router-dom";
 const Category = ({ product, setItem }) => {
   // const [loading, setLoading] = useState(false);
   const {
@@ -13,7 +12,7 @@ const Category = ({ product, setItem }) => {
     published,
     seller,
   } = product;
-  console.log(product);
+  // console.log(product);
   return (
     <div>
       <div className="bg-[#eee] p-10">
@@ -55,7 +54,7 @@ const Category = ({ product, setItem }) => {
               >
                 Bookd Now
               </label>
-              <level className="text-black text-sm">Wishlist</level>
+              <small className="text-black text-sm">Wishlist</small>
             </div>
             <button
               type="button"
