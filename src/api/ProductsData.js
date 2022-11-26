@@ -37,7 +37,6 @@ export const getAllProduct = async () => {
 };
 
 //get filtered products for seller
-//get filtered homes for hosts
 export const getProducts = async (email) => {
   const response = await fetch(
     `${process.env.REACT_APP_API_URL}/products/${email}`,

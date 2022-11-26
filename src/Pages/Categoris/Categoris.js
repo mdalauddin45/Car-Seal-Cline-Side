@@ -5,23 +5,23 @@ import { useLoaderData } from "react-router-dom";
 import SmallSpinner from "../../components/Spinner/SmallSpinner";
 import BookdModal from "../Products/BookdModal";
 import Category from "./Category";
-// import Category from "./Category";
 
 const Categoris = () => {
   const [item, setItem] = useState(null);
   const [products, setProducts] = useState([]);
   // const [category, setCategory] = useState([]);
   const [loading, setLoading] = useState(false);
-  const catData = useLoaderData();
-  const [cat] = catData;
-  const category = cat.category;
+  // const catData = useLoaderData();
+  // const [cat] = catData;
+  // const category = cat.category;
   useEffect(() => {
-    fetch(`http://localhost:5000/products/${category}`)
+    fetch(`http://localhost:5000/products`)
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);
       });
-  }, [category]);
+  }, []);
+  console.log(products);
   if (loading) {
     return <SmallSpinner></SmallSpinner>;
   }
