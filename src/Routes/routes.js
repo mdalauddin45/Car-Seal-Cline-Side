@@ -92,9 +92,9 @@ export const router = createBrowserRouter([
       {
         path: "my-orders",
         element: (
-          <AdminRoute>
+          <PrivateRoute>
             <AllOrders />
-          </AdminRoute>
+          </PrivateRoute>
         ),
       },
     ],
