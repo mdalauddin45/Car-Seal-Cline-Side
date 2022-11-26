@@ -5,6 +5,7 @@ import Categoris from "../Pages/Categoris/Categoris";
 import AllBuyer from "../Pages/Dashboard/Admin/AllBuyer";
 import AllSellers from "../Pages/Dashboard/Admin/AllSellers";
 import AllOrders from "../Pages/Dashboard/Buyers/AllOrders";
+import MyWishLists from "../Pages/Dashboard/Buyers/MyWishLists";
 import AddAProduct from "../Pages/Dashboard/Sellers/AddProducts/AddAProduct";
 import ManageProducts from "../Pages/Dashboard/Sellers/ManageProducts";
 import MyBuyers from "../Pages/Dashboard/Sellers/MyBuyers";
@@ -94,6 +95,14 @@ export const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <AllOrders />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "my-wishlists",
+        element: (
+          <PrivateRoute>
+            <MyWishLists />
           </PrivateRoute>
         ),
       },

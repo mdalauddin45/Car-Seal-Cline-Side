@@ -30,7 +30,7 @@ export const getAllBookings = async () => {
 // Delete a booking
 export const deleteBooking = async (id) => {
   const response = await fetch(
-    `${process.env.REACT_APP_API_URL}/booking/${id}`,
+    `${process.env.REACT_APP_API_URL}/bookings/${id}`,
     {
       method: "DELETE",
       headers: {
