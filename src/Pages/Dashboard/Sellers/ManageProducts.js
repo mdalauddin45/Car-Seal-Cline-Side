@@ -5,12 +5,20 @@ import { AuthContext } from "../../../contexts/AuthProvider";
 const ManageProducts = () => {
   const { user } = useContext(AuthContext);
   const [products, setProducts] = useState([]);
-  const fetchProducts = () =>
-    getProducts(user?.email).then((data) => setProducts(data));
+  // const fetchProducts = () =>
+  //   getProducts(user?.email).then((data) => setProducts(data));
 
+  // useEffect(() => {
+  //   fetchProducts();
+  // }, [user]);
+  // console.log(products);
   useEffect(() => {
-    fetchProducts();
-  }, [user]);
+    fetch(`http://localhost:5000/products/${user?.email}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setProducts(data);
+      });
+  }, []);
   console.log(products);
   return (
     <div>

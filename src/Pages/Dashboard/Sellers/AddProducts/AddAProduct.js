@@ -47,10 +47,10 @@ const AddAProduct = () => {
           used,
           category,
           image: res.data.display_url,
+          email: user?.email,
           seller: {
             name: user?.displayName,
             image: user?.photoURL,
-            email: user?.email,
           },
           published: date,
         };

@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
 import { getRole } from "../api/UserAuth";
+import SmallSpinner from "../components/Spinner/SmallSpinner";
 import { AuthContext } from "../contexts/AuthProvider";
 import DashboardSidebar from "../Pages/Dashboard/DashboardSidebar";
 
@@ -20,7 +21,9 @@ const DashboardLayout = () => {
   return (
     <div className="relative min-h-screen md:flex">
       {loading ? (
-        ""
+        <div className="p-[50%] ">
+          <SmallSpinner />
+        </div>
       ) : (
         <>
           <DashboardSidebar role={role} />
