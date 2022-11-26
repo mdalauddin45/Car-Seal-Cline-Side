@@ -2,6 +2,7 @@ import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { data } from "autoprefixer";
 import React, { useEffect } from "react";
 import { useState } from "react";
+import PrimaryButton from "../../../components/PrimaryButton/PrimaryButton";
 
 const CheckOut = ({ booking }) => {
   const [error, setError] = useState(" ");
@@ -117,13 +118,14 @@ const CheckOut = ({ booking }) => {
             },
           }}
         />
-        <button
-          className="btn btn-primary btn-sm mt-4"
+        <PrimaryButton
+          // className="btn btn-primary btn-sm mt-4"
+          classes="px-4 mt-4 rounded py-2"
           type="submit"
           disabled={!stripe || !clientSecret || processing}
         >
-          Pay
-        </button>
+          Payment Now
+        </PrimaryButton>
       </form>
       <p className="text-red-500">{error}</p>
       {success && (
