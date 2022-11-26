@@ -21,7 +21,7 @@ const DashboardLayout = () => {
   return (
     <div className="relative min-h-screen md:flex">
       {loading ? (
-        <div className="p-[50%] ">
+        <div className="p-[50%]">
           <SmallSpinner />
         </div>
       ) : (

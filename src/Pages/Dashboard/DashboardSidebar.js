@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
 import PrimaryButton from "../../PrimaryButton";
 import AdminMenu from "./Admin/AdminMenu";
-import BuyerMenu from "./BuyerMenu";
+import BuyerMenu from "./Buyers/BuyerMenu";
 import SellerMenu from "./Sellers/SellerMenu";
 
 function DashboardSidebar({ role }) {
