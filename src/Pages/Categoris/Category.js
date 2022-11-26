@@ -39,7 +39,7 @@ const Category = ({ product, setItem }) => {
                 {seller?.name ? (
                   <small className="flex text-sm px-1 py-1">
                     {seller?.name}
-                    <CheckBadgeIcon className="h-5 w-5 text-blue-500" />{" "}
+                    <CheckBadgeIcon className="h-5 w-5 text-blue-500" />
                   </small>
                 ) : (
                   <></>
