@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { getAllBookings } from "../../../api/Booking";
+import { getBookings } from "../../../api/Booking";
 import { AuthContext } from "../../../contexts/AuthProvider";
 import TableRow from "./TableRow";
 
@@ -8,7 +8,7 @@ function AllOrders() {
   const [bookings, setBookings] = useState([]);
   const [loading, setLoading] = useState(false);
   const fetchBookings = () =>
-    getAllBookings(user?.email).then((data) => {
+    getBookings(user?.email).then((data) => {
       setBookings(data);
       setLoading(!loading);
     });
@@ -16,7 +16,7 @@ function AllOrders() {
   useEffect(() => {
     fetchBookings();
   }, [user, loading]);
-
+  // console.log(bookings);
   return (
     <>
       {bookings && Array.isArray(bookings) && bookings.length > 0 ? (

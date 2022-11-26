@@ -14,7 +14,7 @@ export const getBookings = async (email) => {
   return bookings;
 };
 
-// Get All bookings for admin
+// Get All bookings for buyer
 export const getAllBookings = async () => {
   const response = await fetch(`${process.env.REACT_APP_API_URL}/bookings`, {
     method: "GET",

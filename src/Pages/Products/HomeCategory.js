@@ -23,7 +23,7 @@ const HomeCategory = () => {
     const categoryOnlyData = getUniqeData(category, "category");
     // console.log(categoryOnlyData);
   }, [category]);
-
+  // console.log(category);
   return (
     <div className="p-10">
       <div className="flex flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 text-center justify-center text-black">
