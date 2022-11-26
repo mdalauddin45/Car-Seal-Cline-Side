@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { deleteBooking } from "../../../api/Booking";
 
 const TableRow = ({ booking, fetchBookings }) => {
@@ -44,6 +45,23 @@ const TableRow = ({ booking, fetchBookings }) => {
           ></span>
           <button className="relative">Delet</button>
         </span>
+      </td>
+      <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+        {booking?.price && !booking?.paid && (
+          <Link
+            to={`/dashboard/payment/${booking._id}`}
+            className="relative cursor-pointer inline-block px-3 py-1 font-semibold text-green-900 leading-tight"
+          >
+            <span
+              aria-hidden="true"
+              className="absolute inset-0 bg-red-200 opacity-50 rounded-full"
+            ></span>
+            <button className="relative">pay</button>
+          </Link>
+        )}
+        {booking?.price && booking?.paid && (
+          <span className="text-green-500">Paid</span>
+        )}
       </td>
     </tr>
   );

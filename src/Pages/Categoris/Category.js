@@ -55,7 +55,7 @@ const Category = ({ product, setItem }) => {
               >
                 Bookd Now
               </label>
-              <Link>Bookd Now</Link>
+              <level className="text-black text-sm">Wishlist</level>
             </div>
             <button
               type="button"
