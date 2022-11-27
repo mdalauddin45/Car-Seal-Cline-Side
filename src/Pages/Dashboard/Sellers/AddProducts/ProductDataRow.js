@@ -1,7 +1,7 @@
 import React from "react";
 
-const ProductDataRow = ({ product }) => {
-  console.log(product);
+const ProductDataRow = ({ product, handleUpdate, handleDelet }) => {
+  // console.log(product);
   // console.log(fetchProducts);
   return (
     <tr>
@@ -31,7 +31,10 @@ const ProductDataRow = ({ product }) => {
       </td>
 
       <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-        <span className="relative cursor-pointer inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
+        <span
+          onClick={() => handleDelet(product._id)}
+          className="relative cursor-pointer inline-block px-3 py-1 font-semibold text-green-900 leading-tight"
+        >
           <span
             aria-hidden="true"
             className="absolute inset-0 bg-red-200 opacity-50 rounded-full"
@@ -40,7 +43,10 @@ const ProductDataRow = ({ product }) => {
         </span>
       </td>
       <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-        <span className="relative cursor-pointer inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
+        <span
+          onClick={() => handleUpdate(product._id)}
+          className="relative cursor-pointer inline-block px-3 py-1 font-semibold text-green-900 leading-tight"
+        >
           <span
             aria-hidden="true"
             className="absolute inset-0 bg-green-200 opacity-50 rounded-full"

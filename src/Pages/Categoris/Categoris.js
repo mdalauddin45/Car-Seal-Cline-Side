@@ -11,16 +11,16 @@ const Categoris = () => {
   const [products, setProducts] = useState([]);
   // const [category, setCategory] = useState([]);
   const [loading, setLoading] = useState(false);
-  // const catData = useLoaderData();
-  // const [cat] = catData;
-  // const category = cat.category;
+  const catData = useLoaderData();
+  const [cat] = catData;
+  const category = cat.category;
   useEffect(() => {
-    fetch(`http://localhost:5000/products`)
+    fetch(`http://localhost:5000/products/${category}`)
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);
       });
-  }, []);
+  }, [category]);
   console.log(products);
   if (loading) {
     return <SmallSpinner></SmallSpinner>;

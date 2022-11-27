@@ -1,6 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { getProducts } from "../../../api/ProductsData";
+import { toast } from "react-toastify";
+import {
+  deleteproduct,
+  getProducts,
+  updateProduct,
+} from "../../../api/ProductsData";
 import PrimaryButton from "../../../components/PrimaryButton/PrimaryButton";
 import { AuthContext } from "../../../contexts/AuthProvider";
 import ProductDataRow from "./AddProducts/ProductDataRow";
@@ -8,14 +13,23 @@ import ProductDataRow from "./AddProducts/ProductDataRow";
 const ManageProducts = () => {
   const { user } = useContext(AuthContext);
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(false);
   const fetchProducts = () =>
-    getProducts(user?.email).then((data) => setProducts(data));
+    getProducts(user?.email).then((data) => {
+      setProducts(data);
+      setLoading(!loading);
+    });
 
   useEffect(() => {
     fetchProducts();
-  }, [user]);
-  console.log(products);
-
+  }, [user, loading]);
+  // console.log(products);
+  const handleUpdate = (id) => {
+    updateProduct(id);
+  };
+  const handleDelet = (id) => {
+    deleteproduct(id);
+  };
   return (
     <>
       {products && Array.isArray(products) && products.length > 0 ? (
@@ -65,7 +79,8 @@ const ManageProducts = () => {
                         <ProductDataRow
                           key={product?._id}
                           product={product}
-                          fetchProducts={fetchProducts}
+                          handleUpdate={handleUpdate}
+                          handleDelet={handleDelet}
                         />
                       ))}
                   </tbody>

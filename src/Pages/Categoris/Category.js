@@ -13,6 +13,9 @@ const Category = ({ product, setItem }) => {
     seller,
   } = product;
   // console.log(product);
+  const setWishList = (product) => {
+    console.log(product);
+  };
   return (
     <div>
       <div className="bg-[#eee] p-10">
@@ -48,20 +51,18 @@ const Category = ({ product, setItem }) => {
             <div className="flex space-x-2 text-sm dark:text-gray-400">
               <label
                 htmlFor="booking-modal"
-                // disabled={slots.length === 0}
                 onClick={() => setItem(product)}
                 className="hover:text-gray-100 bg-gradient-to-r from-emerald-500 to-lime-500 text-white px-2 py-1 rounded"
               >
                 Bookd Now
               </label>
-              <small className="text-black text-sm">Wishlist</small>
+              <label
+                onClick={() => setWishList(product)}
+                className="hover:text-gray-100 bg-red-500  text-white px-2 py-1 rounded"
+              >
+                Wishlist
+              </label>
             </div>
-            <button
-              type="button"
-              className="flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md dark:bg-green-400 dark:text-gray-900"
-            >
-              Read more
-            </button>
           </div>
         </div>
       </div>
