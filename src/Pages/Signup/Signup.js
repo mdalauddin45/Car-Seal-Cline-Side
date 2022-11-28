@@ -48,8 +48,7 @@ const Signup = () => {
         // Create User
         createUser(email, password)
           .then((result) => {
-            console.log(result.user);
-            setAuthToken(userData);
+            setAuthToken(result.user);
             updateUserProfile(name, imageData.data.display_url)
               .then(() => {
                 setLoading(false);

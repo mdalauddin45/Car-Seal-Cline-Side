@@ -25,19 +25,23 @@ const HomeCategory = () => {
   }, [category]);
   // console.log(category);
   return (
-    <div className="p-10">
-      <div className="flex flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 text-center justify-center text-black">
-        {uniqData?.map((cat, i) => (
-          <Link
-            key={i}
-            to={`/products/${cat}`}
-            className="px-8 py-3 text-lg font-semibold border rounded dark:border-gray-100  hover:bg-green-400 hover:text-white"
-          >
-            {cat}
-          </Link>
-        ))}
+    <>
+      {" "}
+      <div className="p-10 text-center">
+        <h1 className="text-black text-3xl py-5">Top Brand</h1>
+        <div className="flex flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 text-center justify-center text-black">
+          {uniqData?.map((cat, i) => (
+            <Link
+              key={i}
+              to={`/products/${cat}`}
+              className="px-8 py-3 text-lg font-semibold border rounded dark:border-gray-100  hover:bg-green-400 hover:text-white"
+            >
+              {cat}
+            </Link>
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
