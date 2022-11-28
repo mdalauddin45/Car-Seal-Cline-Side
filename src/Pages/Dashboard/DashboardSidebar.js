@@ -1,18 +1,13 @@
-import {
-  ArrowRightOnRectangleIcon,
-  Bars3Icon,
-  CheckBadgeIcon,
-} from "@heroicons/react/24/solid";
+import { Bars3Icon, CheckBadgeIcon } from "@heroicons/react/24/solid";
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
-import PrimaryButton from "../../PrimaryButton";
 import AdminMenu from "./Admin/AdminMenu";
 import BuyerMenu from "./Buyers/BuyerMenu";
 import SellerMenu from "./Sellers/SellerMenu";
 
 function DashboardSidebar({ role }) {
-  const { user, logout } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   const [isActive, setActive] = useState("false");
   // Sidebar Responsive Handler
   const handleToggle = () => {

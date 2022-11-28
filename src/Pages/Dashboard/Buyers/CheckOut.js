@@ -1,5 +1,4 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
-import { data } from "autoprefixer";
 import React, { useEffect } from "react";
 import { useState } from "react";
 import PrimaryButton from "../../../components/PrimaryButton/PrimaryButton";

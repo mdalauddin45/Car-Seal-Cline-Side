@@ -5,7 +5,6 @@ import toast from "react-hot-toast";
 import PrimaryButton from "../../PrimaryButton";
 import SmallSpinner from "../../components/Spinner/SmallSpinner";
 import { makeSealer, setAuthToken } from "../../api/UserAuth";
-import { useState } from "react";
 
 const Signup = () => {
   const {
@@ -15,7 +14,6 @@ const Signup = () => {
     setLoading,
     signInWithGoogle,
   } = useContext(AuthContext);
-  const [role, setRole] = useState(null);
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
@@ -51,10 +49,12 @@ const Signup = () => {
             setAuthToken(result.user);
             updateUserProfile(name, imageData.data.display_url)
               .then(() => {
+                if (userData.role === "seller") {
+                  makeSealer(userData);
+                }
+                toast.success("Sign up Succesfuly");
                 setLoading(false);
                 navigate(from, { replace: true });
-                toast.success("Sign up Succesfuly");
-                setRole(userData.options);
               })
               .catch((err) => {
                 toast.error(err.message);
@@ -68,7 +68,6 @@ const Signup = () => {
       })
       .catch((err) => console.log(err));
   };
-
   const handleGoogleSignin = () => {
     signInWithGoogle().then((result) => {
       console.log(result.user);

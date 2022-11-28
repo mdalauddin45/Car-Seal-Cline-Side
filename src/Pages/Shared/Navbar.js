@@ -1,10 +1,9 @@
-import { ShoppingBagIcon, Square3Stack3DIcon } from "@heroicons/react/24/solid";
+import { Square3Stack3DIcon } from "@heroicons/react/24/solid";
 import React, { useState } from "react";
 import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
 import PrimaryButton from "../../PrimaryButton";
-import BuyerMenu from "../Dashboard/Buyers/BuyerMenu";
 
 function Navbar() {
   const { user, logout } = useContext(AuthContext);

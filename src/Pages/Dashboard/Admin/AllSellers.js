@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { deleteUser, getAllUsers } from "../../../api/UserAuth";
-import SmallSpinner from "../../../components/Spinner/SmallSpinner";
 
 const AllSellers = () => {
   const [loading, setLoading] = useState(false);

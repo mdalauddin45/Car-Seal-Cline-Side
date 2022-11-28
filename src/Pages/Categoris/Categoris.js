@@ -14,9 +14,8 @@ const Categoris = () => {
   const [wishlist, setWishlist] = useState(null);
   const [products, setProducts] = useState([]);
 
-  const [loading, setLoading] = useState(false);
   const catData = useLoaderData();
-  const { user } = useContext(AuthContext);
+  const { user, loading } = useContext(AuthContext);
   const [cat] = catData;
   const category = cat.category;
   useEffect(() => {
@@ -36,7 +35,6 @@ const Categoris = () => {
       userName: user?.displayName,
       price: product.resaleprice,
     };
-    console.log(wishlist);
     fetch(`http://localhost:5000/wishlists`, {
       method: "POST",
       headers: {
@@ -47,7 +45,6 @@ const Categoris = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data.acknowledged) {
           toast.success("wishlist added confrim");
           setWishlist(null);
@@ -57,6 +54,7 @@ const Categoris = () => {
       });
   };
 
+  console.log(wishlist);
   if (loading) {
     return (
       <div className="p-[50%]">
