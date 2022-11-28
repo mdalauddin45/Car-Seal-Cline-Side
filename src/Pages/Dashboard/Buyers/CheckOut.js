@@ -15,7 +15,7 @@ const CheckOut = ({ booking }) => {
 
   useEffect(() => {
     // Create PaymentIntent as soon as the page loads
-    fetch("http://localhost:5000/create-payment-intent", {
+    fetch("https://car-seal-server-site.vercel.app/create-payment-intent", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -80,7 +80,7 @@ const CheckOut = ({ booking }) => {
         bookingId: _id,
       };
       // console.log(payment);
-      fetch(`http://localhost:5000/payments`, {
+      fetch(`https://car-seal-server-site.vercel.app/payments`, {
         method: "POST",
         headers: {
           "content-type": "application/json",

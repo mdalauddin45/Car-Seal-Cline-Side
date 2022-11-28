@@ -19,7 +19,7 @@ const Categoris = () => {
   const [cat] = catData;
   const category = cat.category;
   useEffect(() => {
-    fetch(`http://localhost:5000/products/${category}`)
+    fetch(`https://car-seal-server-site.vercel.app/products/${category}`)
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);
@@ -36,7 +36,7 @@ const Categoris = () => {
       price: product.resaleprice,
     };
     console.log(wishlist);
-    fetch(`http://localhost:5000/wishlists`, {
+    fetch(`https://car-seal-server-site.vercel.app/wishlists`, {
       method: "POST",
       headers: {
         "content-type": "application/json",

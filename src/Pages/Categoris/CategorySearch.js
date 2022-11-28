@@ -21,7 +21,9 @@ const CategorySearch = () => {
   const category = cat.category;
   //   console.log(category);
   useEffect(() => {
-    fetch(`http://localhost:5000/category?category=${category}`)
+    fetch(
+      `https://car-seal-server-site.vercel.app/category?category=${category}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);
@@ -39,7 +41,7 @@ const CategorySearch = () => {
   }, [state]);
   //   console.log(homes);
   //   useEffect(() => {
-  //     fetch(`http://localhost:5000/category?category=Nissan`)
+  //     fetch(`https://car-seal-server-site.vercel.app/category?category=Nissan`)
   //       .then((res) => res.json())
   //       .then((data) => {
   //         setHomes(data);
@@ -55,7 +57,7 @@ const CategorySearch = () => {
       userName: user?.displayName,
       price: product.resaleprice,
     };
-    fetch(`http://localhost:5000/wishlists`, {
+    fetch(`https://car-seal-server-site.vercel.app/wishlists`, {
       method: "POST",
       headers: {
         "content-type": "application/json",

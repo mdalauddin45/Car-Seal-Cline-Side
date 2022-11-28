@@ -36,7 +36,9 @@ export const router = createBrowserRouter([
         path: "/category",
         element: <CategorySearch />,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/category?${params.category}`),
+          fetch(
+            `https://car-seal-server-site.vercel.app/category?${params.category}`
+          ),
       },
     ],
   },
@@ -125,7 +127,9 @@ export const router = createBrowserRouter([
         path: "/dashboard/payment/:id",
         element: <Payment></Payment>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/bookings/${params.id}`),
+          fetch(
+            `https://car-seal-server-site.vercel.app/bookings/${params.id}`
+          ),
       },
     ],
   },

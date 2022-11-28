@@ -7,7 +7,7 @@ const HomeCategory = () => {
   const [uniqData, setUniqData] = useState();
 
   useEffect(() => {
-    fetch("http://localhost:5000/products")
+    fetch("https://car-seal-server-site.vercel.app/products")
       .then((res) => res.json())
       .then((data) => {
         // console.log(data);
