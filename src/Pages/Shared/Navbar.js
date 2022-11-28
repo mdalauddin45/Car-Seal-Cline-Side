@@ -31,11 +31,30 @@ function Navbar() {
           </label>
           <ul
             tabIndex={0}
-            className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+            className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-white rounded-box w-52"
           >
-            <li>
-              <Link to="/blog">Blog</Link>
-            </li>
+            <NavLink
+              to="/blog"
+              className={({ isActive }) =>
+                `flex items-center px-4 py-2 mt-5  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${
+                  isActive ? "bg-gray-300  text-gray-700" : "text-gray-600"
+                }`
+              }
+            >
+              <Square3Stack3DIcon className="w-5 h-5" />
+
+              <span className="mx-4 font-medium">Blog</span>
+            </NavLink>
+            <NavLink
+              to="/dashboard"
+              className={({ isActive }) =>
+                `flex items-center px-4 py-2 mt-5  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${
+                  isActive ? "bg-gray-300  text-gray-700" : "text-gray-600"
+                }`
+              }
+            >
+              <span className="mx-4 font-medium">Dashboard</span>
+            </NavLink>
           </ul>
         </div>
         <Link to="/" className="text-black normal-case text-xl font-bold">
@@ -44,10 +63,6 @@ function Navbar() {
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal p-0">
-          {/* <li>
-       
-          </li> */}
-          <BuyerMenu />
           <NavLink
             to="/blog"
             className={({ isActive }) =>
@@ -60,14 +75,21 @@ function Navbar() {
 
             <span className="mx-4 font-medium">Blog</span>
           </NavLink>
+          <NavLink
+            to="/dashboard"
+            className={({ isActive }) =>
+              `flex items-center px-4 py-2 mt-5  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${
+                isActive ? "bg-gray-300  text-gray-700" : "text-gray-600"
+              }`
+            }
+          >
+            <span className="mx-4 font-medium">Dashboard</span>
+          </NavLink>
         </ul>
       </div>
       <div className="navbar-end">
         {user?.email ? (
           <>
-            <div>
-              <Link to="/dashboard">Dashboard</Link>
-            </div>
             <div
               onClick={() => {
                 setIsDropdownOpen(!isDropdownOpen);

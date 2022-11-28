@@ -28,7 +28,10 @@ const Category = ({ product, setItem, handleWishList }) => {
                 {name.slice(0, 18) + "..."}
               </h2>
               <p className="dark:text-gray-900">Location: {location}</p>
-              <p className="text-red-400">Orginal Price: ${originalprice}</p>
+              <p className="text-red-400 ">
+                Orginal Price:{" "}
+                <span className="line-through">${originalprice}</span>
+              </p>
               <p className="text-green-500">Resale Price: ${resaleprice}</p>
 
               <p className="dark:text-gray-900">Used: {used} year</p>

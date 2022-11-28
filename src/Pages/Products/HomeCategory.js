@@ -24,21 +24,19 @@ const HomeCategory = () => {
     const categoryOnlyData = getUniqeData(category, "category");
     // console.log(categoryOnlyData);
   }, [category]);
-  // console.log(category);
   return (
     <>
       <div className="p-10 text-center">
         <h1 className="text-black text-3xl py-5">Top Brand</h1>
         <div className="flex flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 text-center justify-center text-black">
           {uniqData?.map((cat, i) => (
-            <div className="border p-6">
+            <div key={i} className="border p-6">
               <div>
                 <img src={img1} className="w-60" alt="/" />
               </div>
               <Link
-                key={i}
                 to={`/products/${cat}`}
-                className="px-20 py-3  text-lg font-semibold hover:border  dark:border-gray-100  hover:bg-gray-400 hover:text-white"
+                className="px-20 py-3  text-lg font-semibold hover:border  dark:border-gray-100  hover:bg-green-400 hover:text-white"
               >
                 {cat}
               </Link>
