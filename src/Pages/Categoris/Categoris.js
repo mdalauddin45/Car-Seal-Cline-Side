@@ -1,17 +1,22 @@
 import React from "react";
+import { useContext } from "react";
 import { useEffect } from "react";
 import { useState } from "react";
+import toast from "react-hot-toast";
 import { useLoaderData } from "react-router-dom";
 import SmallSpinner from "../../components/Spinner/SmallSpinner";
+import { AuthContext } from "../../contexts/AuthProvider";
 import BookdModal from "../Products/BookdModal";
 import Category from "./Category";
 
 const Categoris = () => {
   const [item, setItem] = useState(null);
+  const [wishlist, setWishlist] = useState(null);
   const [products, setProducts] = useState([]);
-  // const [category, setCategory] = useState([]);
+
   const [loading, setLoading] = useState(false);
   const catData = useLoaderData();
+  const { user } = useContext(AuthContext);
   const [cat] = catData;
   const category = cat.category;
   useEffect(() => {
@@ -21,9 +26,43 @@ const Categoris = () => {
         setProducts(data);
       });
   }, [category]);
-  console.log(products);
+
+  const handleWishList = (product) => {
+    console.log(product);
+    const wishlist = {
+      productName: product.name,
+      location: product.location,
+      image: product.image,
+      email: product.email,
+      userName: user?.displayName,
+      phone: product.phone,
+      price: product.resaleprice,
+    };
+    fetch(`http://localhost:5000/wishlists`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("garibazar-token")}`,
+      },
+      body: JSON.stringify(wishlist),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.acknowledged) {
+          toast.success("wishlist added confrim");
+          setWishlist(null);
+        } else {
+          toast.error(data.message);
+        }
+      });
+  };
   if (loading) {
-    return <SmallSpinner></SmallSpinner>;
+    return (
+      <div className="p-[50%]">
+        <SmallSpinner></SmallSpinner>
+      </div>
+    );
   }
   return (
     <div>
@@ -40,6 +79,7 @@ const Categoris = () => {
                   key={product._id}
                   product={product}
                   setItem={setItem}
+                  handleWishList={handleWishList}
                 ></Category>
               ))}
           </div>

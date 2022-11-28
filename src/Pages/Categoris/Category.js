@@ -1,6 +1,6 @@
 import React from "react";
 import { CheckBadgeIcon } from "@heroicons/react/24/solid";
-const Category = ({ product, setItem }) => {
+const Category = ({ product, setItem, handleWishList }) => {
   // const [loading, setLoading] = useState(false);
   const {
     name,
@@ -12,10 +12,7 @@ const Category = ({ product, setItem }) => {
     published,
     seller,
   } = product;
-  // console.log(product);
-  const setWishList = (product) => {
-    console.log(product);
-  };
+
   return (
     <div>
       <div className="bg-[#eee] p-10">
@@ -57,7 +54,7 @@ const Category = ({ product, setItem }) => {
                 Bookd Now
               </label>
               <label
-                onClick={() => setWishList(product)}
+                onClick={() => handleWishList(product)}
                 className="hover:text-gray-100 bg-red-500  text-white px-2 py-1 rounded"
               >
                 Wishlist
