@@ -1,8 +1,10 @@
+import { ShoppingBagIcon, Square3Stack3DIcon } from "@heroicons/react/24/solid";
 import React, { useState } from "react";
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
 import PrimaryButton from "../../PrimaryButton";
+import BuyerMenu from "../Dashboard/Buyers/BuyerMenu";
 
 function Navbar() {
   const { user, logout } = useContext(AuthContext);
@@ -42,9 +44,22 @@ function Navbar() {
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal p-0">
-          <li>
-            <Link to="/blog">Blog</Link>
-          </li>
+          {/* <li>
+       
+          </li> */}
+          <BuyerMenu />
+          <NavLink
+            to="/blog"
+            className={({ isActive }) =>
+              `flex items-center px-4 py-2 mt-5  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${
+                isActive ? "bg-gray-300  text-gray-700" : "text-gray-600"
+              }`
+            }
+          >
+            <Square3Stack3DIcon className="w-5 h-5" />
+
+            <span className="mx-4 font-medium">Blog</span>
+          </NavLink>
         </ul>
       </div>
       <div className="navbar-end">

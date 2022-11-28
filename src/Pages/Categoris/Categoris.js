@@ -71,8 +71,8 @@ const Categoris = () => {
           <SmallSpinner />
         </>
       ) : (
-        <>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 max-w-screen-xl mx-auto mt-10 mb-6 ">
+        <div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 max-w-screen-xl mx-auto   pb-6 ">
             {products &&
               products?.map((product) => (
                 <Category
@@ -84,7 +84,7 @@ const Categoris = () => {
               ))}
           </div>
           {item && <BookdModal setItem={setItem} item={item}></BookdModal>}
-        </>
+        </div>
       )}
     </div>
   );

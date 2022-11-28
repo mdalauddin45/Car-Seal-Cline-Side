@@ -40,6 +40,14 @@ export const router = createBrowserRouter([
         loader: ({ params }) =>
           fetch(`http://localhost:5000/products/${params.category}`),
       },
+      {
+        path: "/my-wishlists",
+        element: (
+          <PrivateRoute>
+            <MyWishLists />
+          </PrivateRoute>
+        ),
+      },
     ],
   },
   {
@@ -107,6 +115,7 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
+
       {
         path: "/dashboard/payment/:id",
         element: <Payment></Payment>,

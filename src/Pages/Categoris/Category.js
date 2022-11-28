@@ -15,7 +15,7 @@ const Category = ({ product, setItem, handleWishList }) => {
 
   return (
     <div>
-      <div className="bg-[#eee] p-10">
+      <div className="p-10">
         <div className="max-w-xs rounded-md shadow-md dark:bg-white dark:text-gray-900">
           <img
             src={image}
