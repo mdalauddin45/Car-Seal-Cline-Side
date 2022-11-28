@@ -22,7 +22,9 @@ const AllSellers = () => {
   return (
     <div className="container mx-auto px-4 sm:px-8">
       <div className="text-center">
-        <h1>All Seller Information</h1>
+        <h1 className="text-3xl text-black font-bold">
+          All Seller Information
+        </h1>
       </div>
       <div className="py-8">
         <div className="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">

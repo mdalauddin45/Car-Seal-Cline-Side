@@ -4,6 +4,7 @@ import Main from "../Layout/Main";
 import Categoris from "../Pages/Categoris/Categoris";
 import AllBuyer from "../Pages/Dashboard/Admin/AllBuyer";
 import AllSellers from "../Pages/Dashboard/Admin/AllSellers";
+import Reported from "../Pages/Dashboard/Admin/Reported";
 import AllOrders from "../Pages/Dashboard/Buyers/AllOrders";
 import MyWishLists from "../Pages/Dashboard/Buyers/MyWishLists";
 import Payment from "../Pages/Dashboard/Buyers/Payment";
@@ -39,14 +40,6 @@ export const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/products/${params.category}`),
-      },
-      {
-        path: "/my-wishlists",
-        element: (
-          <PrivateRoute>
-            <MyWishLists />
-          </PrivateRoute>
-        ),
       },
     ],
   },
@@ -113,6 +106,14 @@ export const router = createBrowserRouter([
           <PrivateRoute>
             <MyWishLists />
           </PrivateRoute>
+        ),
+      },
+      {
+        path: "all-reporte",
+        element: (
+          <AdminRoute>
+            <Reported />
+          </AdminRoute>
         ),
       },
 
