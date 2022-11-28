@@ -1,12 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 import { deleteBooking } from "../../../api/Booking";
+import { deleteWishlist } from "../../../api/wishlist";
 
-const TableRow = ({ booking, fetchBookings }) => {
+const TableRow = ({ booking }) => {
   const { image, location, price, productName, _id } = booking;
-  const handleDelet = () => {
-    console.log(_id);
-    deleteBooking(_id);
+  const handleDelet = (id) => {
+    deleteBooking(id);
+
+    if (id) {
+      deleteWishlist(id);
+      toast.success("delet Succussfuly");
+    }
   };
   //   console.log(booking);
 
@@ -36,7 +42,7 @@ const TableRow = ({ booking, fetchBookings }) => {
       </td>
       <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
         <span
-          onClick={handleDelet}
+          onClick={() => handleDelet(_id)}
           className="relative cursor-pointer inline-block px-3 py-1 font-semibold text-green-900 leading-tight"
         >
           <span

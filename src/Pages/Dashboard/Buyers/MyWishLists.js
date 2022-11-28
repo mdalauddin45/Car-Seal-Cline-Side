@@ -74,7 +74,7 @@ const MyWishLists = () => {
       ) : (
         <>
           <div className="h-screen text-gray-600 gap-5 flex flex-col justify-center items-center pb-16 text-xl lg:text-3xl">
-            There's no booking data available right now.
+            There's no Wishlists data available right now.
           </div>
         </>
       )}

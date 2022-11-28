@@ -1,3 +1,5 @@
+import toast from "react-hot-toast";
+
 // Get all wishlists for a user by email
 export const getwishlists = async (email) => {
   const response = await fetch(
@@ -38,8 +40,17 @@ export const deleteWishlist = async (id) => {
         authorization: `Bearer ${localStorage.getItem("garibazar-token")}`,
       },
     }
-  );
-
-  const data = await response.json();
-  return data;
+  )
+    .then((res) => res.json())
+    .then((data) => {
+      if (data.acknowledged) {
+        toast.success(" delet confrim");
+      } else {
+        toast.error(data.message);
+      }
+      return data;
+    })
+    .catch((err) => {
+      toast.error(err.message);
+    });
 };

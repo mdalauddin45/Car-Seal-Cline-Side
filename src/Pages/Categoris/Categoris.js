@@ -26,18 +26,17 @@ const Categoris = () => {
         setProducts(data);
       });
   }, [category]);
-
   const handleWishList = (product) => {
     console.log(product);
     const wishlist = {
       productName: product.name,
       location: product.location,
       image: product.image,
-      email: product.email,
+      email: user?.email,
       userName: user?.displayName,
-      phone: product.phone,
       price: product.resaleprice,
     };
+    console.log(wishlist);
     fetch(`http://localhost:5000/wishlists`, {
       method: "POST",
       headers: {
@@ -57,6 +56,7 @@ const Categoris = () => {
         }
       });
   };
+
   if (loading) {
     return (
       <div className="p-[50%]">
