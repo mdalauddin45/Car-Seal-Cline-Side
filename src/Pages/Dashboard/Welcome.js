@@ -12,7 +12,6 @@ const Welcome = () => {
       setLoading(false);
     });
   }, [user]);
-  console.log(role);
   return (
     <div className="h-screen text-gray-700 flex flex-col justify-center items-center pb-16">
       <div className="flex justify-center items-center">

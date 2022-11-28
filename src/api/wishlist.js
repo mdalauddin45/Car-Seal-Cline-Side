@@ -53,4 +53,6 @@ export const deleteWishlist = async (id) => {
     .catch((err) => {
       toast.error(err.message);
     });
+  const data = await response.json();
+  return data;
 };

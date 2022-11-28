@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { getAllUsers } from "../../../api/UserAuth";
-import SmallSpinner from "../../../components/Spinner/SmallSpinner";
+import toast from "react-hot-toast";
+import { deleteUser, getAllUsers } from "../../../api/UserAuth";
 
 const AllBuyer = () => {
   const [loading, setLoading] = useState(false);
@@ -16,9 +16,16 @@ const AllBuyer = () => {
       setLoading(false);
     });
   };
-  //   console.log(users);
+  // console.log(users);
   const buyers = users.filter((x) => x.role === users.role);
-  //   console.log(buyers);
+  // console.log(buyers);
+  const handleDelet = (id) => {
+    if (id) {
+      deleteUser(id);
+      toast.success("delet user Succussfuly");
+      setLoading(!loading);
+    }
+  };
   return (
     <div className="container mx-auto px-4 sm:px-8">
       <div className="text-center">
@@ -68,17 +75,16 @@ const AllBuyer = () => {
                         </p>
                       </td>
                       <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                        {user?.role && user.role === "requested" && (
-                          <span className="relative cursor-pointer inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
-                            <span
-                              aria-hidden="true"
-                              className="absolute inset-0 bg-green-200 opacity-50 rounded-full"
-                            ></span>
-                            <span className="relative">
-                              {loading ? <SmallSpinner /> : " Approve Request"}
-                            </span>
-                          </span>
-                        )}
+                        <span
+                          onClick={() => handleDelet(user._id)}
+                          className="relative cursor-pointer inline-block px-3 py-1 font-semibold text-green-900 leading-tight"
+                        >
+                          <span
+                            aria-hidden="true"
+                            className="absolute inset-0 bg-red-200 opacity-50 rounded-full"
+                          ></span>
+                          <button className="relative">Delet</button>
+                        </span>
                       </td>
                     </tr>
                   ))}

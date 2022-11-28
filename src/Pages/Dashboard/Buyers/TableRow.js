@@ -8,7 +8,6 @@ const TableRow = ({ booking }) => {
   const { image, location, price, productName, _id } = booking;
   const handleDelet = (id) => {
     deleteBooking(id);
-
     if (id) {
       deleteWishlist(id);
       toast.success("delet Succussfuly");
