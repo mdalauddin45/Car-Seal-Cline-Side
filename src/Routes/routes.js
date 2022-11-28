@@ -125,7 +125,6 @@ export const router = createBrowserRouter([
           </AdminRoute>
         ),
       },
-
       {
         path: "/dashboard/payment/:id",
         element: <Payment></Payment>,
