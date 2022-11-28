@@ -1,30 +1,50 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useContext } from "react";
-import { useEffect } from "react";
-import { useState } from "react";
 import toast from "react-hot-toast";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useLocation } from "react-router-dom";
+import { getCategory } from "../../api/ProductsData";
 import SmallSpinner from "../../components/Spinner/SmallSpinner";
 import { AuthContext } from "../../contexts/AuthProvider";
 import BookdModal from "../Products/BookdModal";
-import Category from "./Category";
+import CategoryCard from "./CategoryCard";
 
-const Categoris = () => {
+const CategorySearch = () => {
   const [item, setItem] = useState(null);
-  const [wishlist, setWishlist] = useState(null);
   const [products, setProducts] = useState([]);
+  const [homes, setHomes] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const { user } = useContext(AuthContext);
+  const { state } = useLocation();
+  //   console.log(state);
 
-  const catData = useLoaderData();
-  const { user, loading } = useContext(AuthContext);
-  const [cat] = catData;
+  const [cat] = useLoaderData();
   const category = cat.category;
+  //   console.log(category);
   useEffect(() => {
-    fetch(`http://localhost:5000/products/${category}`)
+    fetch(`http://localhost:5000/category?category=${category}`)
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);
       });
   }, [category]);
+
+  useEffect(() => {
+    getCategory(state?.category)
+      .then((data) => {
+        // console.log(data);
+        setHomes(data);
+        setLoading(false);
+      })
+      .catch((err) => console.log(err));
+  }, [state]);
+  //   console.log(homes);
+  //   useEffect(() => {
+  //     fetch(`http://localhost:5000/category?category=Nissan`)
+  //       .then((res) => res.json())
+  //       .then((data) => {
+  //         setHomes(data);
+  //       });
+  //   }, []);
   const handleWishList = (product) => {
     console.log(product);
     const wishlist = {
@@ -35,7 +55,6 @@ const Categoris = () => {
       userName: user?.displayName,
       price: product.resaleprice,
     };
-    console.log(wishlist);
     fetch(`http://localhost:5000/wishlists`, {
       method: "POST",
       headers: {
@@ -46,16 +65,13 @@ const Categoris = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data.acknowledged) {
           toast.success("wishlist added confrim");
-          setWishlist(null);
         } else {
           toast.error(data.message);
         }
       });
   };
-
   if (loading) {
     return (
       <div className="p-[50%]">
@@ -74,12 +90,12 @@ const Categoris = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 max-w-screen-xl mx-auto   pb-6 ">
             {products &&
               products?.map((product) => (
-                <Category
+                <CategoryCard
                   key={product._id}
                   product={product}
                   setItem={setItem}
                   handleWishList={handleWishList}
-                ></Category>
+                ></CategoryCard>
               ))}
           </div>
           {item && <BookdModal setItem={setItem} item={item}></BookdModal>}
@@ -89,4 +105,4 @@ const Categoris = () => {
   );
 };
 
-export default Categoris;
+export default CategorySearch;

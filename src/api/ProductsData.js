@@ -82,3 +82,12 @@ export const deleteproduct = async (id) => {
   const result = await response.json();
   return result;
 };
+
+// Search Result
+export const getCategory = async (category) => {
+  const response = await fetch(
+    `${process.env.REACT_APP_API_URL}/category?category=${category}`
+  );
+  const data = await response.json();
+  return data;
+};

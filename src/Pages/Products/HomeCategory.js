@@ -35,7 +35,7 @@ const HomeCategory = () => {
                 <img src={img1} className="w-60" alt="/" />
               </div>
               <Link
-                to={`/products/${cat}`}
+                to={`/category?category=${cat}`}
                 className="px-20 py-3  text-lg font-semibold hover:border  dark:border-gray-100  hover:bg-green-400 hover:text-white"
               >
                 {cat}
