@@ -11,6 +11,7 @@ import Payment from "../Pages/Dashboard/Buyers/Payment";
 import AddAProduct from "../Pages/Dashboard/Sellers/AddProducts/AddAProduct";
 import ManageProducts from "../Pages/Dashboard/Sellers/ManageProducts";
 import MyBuyers from "../Pages/Dashboard/Sellers/MyBuyers";
+import Welcome from "../Pages/Dashboard/Welcome";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import Blog from "../Pages/Shared/Blog";
@@ -52,6 +53,14 @@ export const router = createBrowserRouter([
       </PrivateRoute>
     ),
     children: [
+      {
+        path: "",
+        element: (
+          <PrivateRoute>
+            <Welcome />
+          </PrivateRoute>
+        ),
+      },
       {
         path: "add-product",
         element: (
