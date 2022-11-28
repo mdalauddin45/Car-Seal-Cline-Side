@@ -39,12 +39,12 @@ const Signup = () => {
       .then((imageData) => {
         const userData = {
           name,
-          options,
           email,
           image: imageData.data.display_url,
-          role,
+          role: options,
         };
-        console.log(userData);
+        // console.log(userData);
+
         // Create User
         createUser(email, password)
           .then((result) => {
@@ -54,13 +54,9 @@ const Signup = () => {
                 setLoading(false);
                 navigate(from, { replace: true });
                 toast.success("Sign up Succesfuly");
-                if (userData.options === "seller") {
-                  setRole("seller");
-                  makeSealer(userData);
-                }
+                setRole(userData.options);
               })
               .catch((err) => {
-                console.log(err);
                 toast.error(err.message);
               });
           })
