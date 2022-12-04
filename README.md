@@ -20,6 +20,7 @@ Documentation Link -> [booking API](https://car-seal-server-site.vercel.app/book
 Tailwind Components -> [Tailwind ](https://tailwindcss.com/)
 DaisyUi Components -> [daisyui](https://daisyui.com/)
 merakiui Components -> [merakiui](https://merakiui.com/)
+headlessui Components -> [headlessui](https://headlessui.com/)
 
 ⚪ Home page Created
 ⚪ Home page Bannar Created

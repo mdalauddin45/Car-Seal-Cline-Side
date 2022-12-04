@@ -8,11 +8,15 @@ import {
 import PrimaryButton from "../../../components/PrimaryButton/PrimaryButton";
 import { AuthContext } from "../../../contexts/AuthProvider";
 import ProductDataRow from "./AddProducts/ProductDataRow";
+import UpdateModal from "./Update/UpdateModal";
 
 const ManageProducts = () => {
   const { user } = useContext(AuthContext);
+  const [update, setUpdate] = useState(null);
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [preview, setPreview] = useState("");
+  const [uploadButtonText, setUploadButtonText] = useState("Upload Image");
   const fetchProducts = () =>
     getProducts(user?.email).then((data) => {
       setProducts(data);
@@ -23,12 +27,16 @@ const ManageProducts = () => {
     fetchProducts();
   }, [user, loading]);
   // console.log(products);
-  const handleUpdate = (id) => {
-    updateProduct(id);
-  };
   const handleDelet = (id) => {
     deleteproduct(id);
   };
+
+  const handleImageChange = (image) => {
+    // console.log(image);
+    setPreview(window.URL.createObjectURL(image));
+    setUploadButtonText(image.name);
+  };
+
   return (
     <>
       {products && Array.isArray(products) && products.length > 0 ? (
@@ -78,12 +86,22 @@ const ManageProducts = () => {
                         <ProductDataRow
                           key={product?._id}
                           product={product}
-                          handleUpdate={handleUpdate}
                           handleDelet={handleDelet}
+                          setUpdate={setUpdate}
                         />
                       ))}
                   </tbody>
                 </table>
+
+                <UpdateModal
+                  update={update}
+                  setUpdate={setUpdate}
+                  handleSubmit={handleSubmit}
+                  loading={loading}
+                  handleImageChange={handleImageChange}
+                  preview={preview}
+                  uploadButtonText={uploadButtonText}
+                />
               </div>
             </div>
           </div>

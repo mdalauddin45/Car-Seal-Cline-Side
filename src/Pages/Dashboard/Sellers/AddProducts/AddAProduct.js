@@ -28,18 +28,18 @@ const AddAProduct = () => {
     const condition = form.condition.value;
     const description = form.description.value;
     const image = event.target.image.files[0];
-    console.log(
-      name,
-      originalprice,
-      resaleprice,
-      used,
-      category,
-      number,
-      location,
-      image,
-      condition,
-      description
-    );
+    // console.log(
+    //   name,
+    //   originalprice,
+    //   resaleprice,
+    //   used,
+    //   category,
+    //   number,
+    //   location,
+    //   image,
+    //   condition,
+    //   description
+    // );
     setLoading(true);
     imageUpload(image)
       .then((res) => {
@@ -49,6 +49,7 @@ const AddAProduct = () => {
           originalprice,
           resaleprice,
           used,
+          number,
           category,
           image: res.data.display_url,
           email: user?.email,
