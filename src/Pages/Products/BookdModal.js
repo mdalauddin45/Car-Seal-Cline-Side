@@ -2,6 +2,7 @@ import { format } from "date-fns";
 import React, { useState } from "react";
 import { useContext } from "react";
 import toast from "react-hot-toast";
+import { Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
 import PrimaryButton from "../../PrimaryButton";
 
@@ -116,12 +117,22 @@ function BookdModal({ item, setItem }) {
                 className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-100 dark:text-gray-900 focus:dark:border-green-400"
               />
             </div>
-            <PrimaryButton
-              type="submit"
-              classes="block w-full p-3 text-center rounded-sm text-white"
-            >
-              Submit
-            </PrimaryButton>
+            {user?.email ? (
+              <>
+                <PrimaryButton
+                  type="submit"
+                  classes="block w-full p-3 text-center rounded-sm text-white"
+                >
+                  Submit
+                </PrimaryButton>
+              </>
+            ) : (
+              <Link to="/login">
+                <PrimaryButton classes="block w-full p-3 text-center rounded-sm text-white">
+                  Submit
+                </PrimaryButton>
+              </Link>
+            )}
           </form>
         </div>
         <div></div>

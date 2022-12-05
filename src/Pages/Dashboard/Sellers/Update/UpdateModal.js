@@ -1,4 +1,5 @@
 import React from "react";
+import toast from "react-hot-toast";
 import SmallSpinner from "../../../../components/Spinner/SmallSpinner";
 
 const UpdateModal = ({
@@ -22,7 +23,7 @@ const UpdateModal = ({
   } = update;
   const handleSubmit = (e) => {
     e.preventDefault();
-    const form = event.target;
+    const form = e.target;
     const name = form.name.value;
     const originalprice = form.oprice.value;
     const resaleprice = form.rprice.value;
@@ -32,7 +33,7 @@ const UpdateModal = ({
     const category = form.category.value;
     const condition = form.condition.value;
     const description = form.description.value;
-    const image = event.target.image.files[0];
+    const image = e.target.image.files[0];
     const updating = {
       name,
       location,

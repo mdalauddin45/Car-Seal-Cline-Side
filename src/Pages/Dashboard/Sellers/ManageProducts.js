@@ -30,7 +30,9 @@ const ManageProducts = () => {
   const handleDelet = (id) => {
     deleteproduct(id);
   };
-
+  const handleSubmit = () => {
+    console.log("submit");
+  };
   const handleImageChange = (image) => {
     // console.log(image);
     setPreview(window.URL.createObjectURL(image));
