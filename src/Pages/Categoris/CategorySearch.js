@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useContext } from "react";
 import toast from "react-hot-toast";
-import { useLoaderData, useLocation } from "react-router-dom";
-import { getCategory } from "../../api/ProductsData";
+import { useLocation } from "react-router-dom";
 import SmallSpinner from "../../components/Spinner/SmallSpinner";
 import { AuthContext } from "../../contexts/AuthProvider";
 import BookdModal from "../Products/BookdModal";
@@ -12,41 +11,24 @@ const CategorySearch = () => {
   const [item, setItem] = useState(null);
   const [products, setProducts] = useState([]);
   const [homes, setHomes] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const { user } = useContext(AuthContext);
-  const { state } = useLocation();
-  //   console.log(state);
+  const { user, loading } = useContext(AuthContext);
+  const state = useLocation();
+  const category = state.pathname.split("/")[2]
+  console.log(category);
 
-  const [cat] = useLoaderData();
-  const category = cat.category;
-  //   console.log(category);
+
+
   useEffect(() => {
     fetch(
-      `https://car-seal-server-site.vercel.app/category?category=${category}`
+      `http://localhost:5000/category/${category}`
     )
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);
       });
   }, [category]);
+  console.log(products);
 
-  useEffect(() => {
-    getCategory(state?.category)
-      .then((data) => {
-        // console.log(data);
-        setHomes(data);
-        setLoading(false);
-      })
-      .catch((err) => console.log(err));
-  }, [state]);
-  //   console.log(homes);
-  //   useEffect(() => {
-  //     fetch(`https://car-seal-server-site.vercel.app/category?category=Nissan`)
-  //       .then((res) => res.json())
-  //       .then((data) => {
-  //         setHomes(data);
-  //       });
-  //   }, []);
   const handleWishList = (product) => {
     console.log(product);
     const wishlist = {
@@ -57,7 +39,7 @@ const CategorySearch = () => {
       userName: user?.displayName,
       price: product.resaleprice,
     };
-    fetch(`https://car-seal-server-site.vercel.app/wishlists`, {
+    fetch(`http://localhost:5000/wishlists`, {
       method: "POST",
       headers: {
         "content-type": "application/json",

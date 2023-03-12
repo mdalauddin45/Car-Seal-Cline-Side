@@ -33,12 +33,8 @@ export const router = createBrowserRouter([
       { path: "/signup", element: <Signup></Signup> },
       { path: "/blog", element: <Blog></Blog> },
       {
-        path: "/category",
-        element: <CategorySearch />,
-        loader: ({ params }) =>
-          fetch(
-            `https://car-seal-server-site.vercel.app/category?${params.category}`
-          ),
+        path: "/category/:category",
+        element: <CategorySearch />
       },
     ],
   },
@@ -128,7 +124,7 @@ export const router = createBrowserRouter([
         element: <Payment></Payment>,
         loader: ({ params }) =>
           fetch(
-            `https://car-seal-server-site.vercel.app/bookings/${params.id}`
+            `http://localhost:5000/bookings/${params.id}`
           ),
       },
     ],
