@@ -124,7 +124,7 @@ export const router = createBrowserRouter([
         element: <Payment></Payment>,
         loader: ({ params }) =>
           fetch(
-            `http://localhost:5000/bookings/${params.id}`
+            `https://car-livid-one.vercel.app/bookings/${params.id}`
           ),
       },
     ],

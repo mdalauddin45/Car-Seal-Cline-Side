@@ -29,7 +29,7 @@ function BookdModal({ item, setItem }) {
       date,
     };
     console.log(booking);
-    fetch(`https://car-seal-server-site.vercel.app/bookings`, {
+    fetch(`https://car-livid-one.vercel.app/bookings`, {
       method: "POST",
       headers: {
         "content-type": "application/json",

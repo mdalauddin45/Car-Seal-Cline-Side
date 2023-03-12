@@ -15,7 +15,7 @@ const CheckOut = ({ booking }) => {
 
   useEffect(() => {
     // Create PaymentIntent as soon as the page loads
-    fetch("https://car-seal-server-site.vercel.app/create-payment-intent", {
+    fetch("https://car-livid-one.vercel.app/create-payment-intent", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -80,7 +80,7 @@ const CheckOut = ({ booking }) => {
         bookingId: _id,
       };
       // console.log(payment);
-      fetch(`https://car-seal-server-site.vercel.app/payments`, {
+      fetch(`https://car-livid-one.vercel.app/payments`, {
         method: "POST",
         headers: {
           "content-type": "application/json",

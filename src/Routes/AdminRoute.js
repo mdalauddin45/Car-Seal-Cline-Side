@@ -10,7 +10,7 @@ const AdminRoute = ({ children }) => {
 
   const adminRole = async (email) => {
     const response = await fetch(
-      `https://car-seal-server-site.vercel.app/user/${email}`,
+      `https://car-livid-one.vercel.app/user/${email}`,
       {
         method: "GET",
         headers: {

@@ -47,7 +47,7 @@ const UpdateModal = ({
       description,
     };
     console.log(updating);
-    fetch(`https://car-seal-server-site.vercel.app/products/${_id}`, {
+    fetch(`https://car-livid-one.vercel.app/products/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

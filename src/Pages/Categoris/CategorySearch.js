@@ -20,7 +20,7 @@ const CategorySearch = () => {
 
   useEffect(() => {
     fetch(
-      `http://localhost:5000/category/${category}`
+      `https://car-livid-one.vercel.app/category/${category}`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -39,7 +39,7 @@ const CategorySearch = () => {
       userName: user?.displayName,
       price: product.resaleprice,
     };
-    fetch(`http://localhost:5000/wishlists`, {
+    fetch(`https://car-livid-one.vercel.app/wishlists`, {
       method: "POST",
       headers: {
         "content-type": "application/json",

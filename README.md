@@ -12,8 +12,8 @@ Hosted in Firebase -> [Ctg Gari Bazar](https://ctggaribazar.web.app/)
 
 ## API
 
-Documentation Link -> [Product API](https://car-seal-server-site.vercel.app/products/)
-Documentation Link -> [booking API](https://car-seal-server-site.vercel.app/booking/)
+Documentation Link -> [Product API](https://car-livid-one.vercel.app/products/)
+Documentation Link -> [booking API](https://car-livid-one.vercel.app/booking/)
 
 ## Resources & Credits
 
